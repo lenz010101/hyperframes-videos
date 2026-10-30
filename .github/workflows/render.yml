@@ -6,14 +6,10 @@ on:
         description: "FPS"
         required: true
         default: "30"
-      width:
-        description: "Width"
+      resolution:
+        description: "Resolution preset"
         required: true
-        default: "536"
-      height:
-        description: "Height"
-        required: true
-        default: "954"
+        default: "portrait"
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -27,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
       - name: Render with HyperFrames
-        run: npx hyperframes render --input ./index.html --output ./out --fps ${{ github.event.inputs.fps }} --width ${{ github.event.inputs.width }} --height ${{ github.event.inputs.height }}
+        run: npx hyperframes render . --output ./out --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
