@@ -1,1 +1,50 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Instagram Edit Match Refe</title><style>html,body{margin:0;height:100%;background:#000;overflow:hidden}#stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}video{width:100%;height:100%;object-fit:cover;transform:translate3d(0,0,0);filter:contrast(1.05) saturate(1.1);aspect-ratio:9/16}</style></head><body><div id="stage" data-duration="53000"><video id="baseVideo" src="Instagram.mp4" playsinline preload="auto" autoplay></video></div><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script>const video=document.getElementById("baseVideo");const tl=gsap.timeline({paused:true});const DUR_REFE=53.53333333333333;const DUR_INST=37.14501111111111;video.play().catch(()=>{});fetch("scenes.json").then(r=>r.json()).then(data=>{const scenes=data.scene_times_inst||[];tl.set(video,{currentTime:0});scenes.forEach(t=>{const refTime=t*DUR_REFE/DUR_INST;tl.set(video,{currentTime:t},refTime);});tl.set(video,{currentTime:DUR_INST},DUR_REFE);});window.__timelines={main:tl};</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Instagram Edit Match Refe - Motion Graphics</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}
+video{width:100%;height:100%;object-fit:cover;transform:translate3d(0,0,0);filter:contrast(1.08) saturate(1.15) brightness(1.02)}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.text{font-family:Arial,Helvetica,sans-serif;font-weight:800;font-size:clamp(32px,8vw,96px);color:#fff;text-shadow:0 0 20px rgba(0,0,0,.8);opacity:0;transform:translateY(30px) scale(.95)}
+.bar{position:absolute;left:0;right:0;height:6px;background:linear-gradient(90deg,#ff3b5c,#ff9a3c);transform:scaleX(0);transform-origin:left}
+</style>
+</head>
+<body>
+<div id="stage" data-duration="53000">
+  <video id="baseVideo" src="Instagram.mp4" playsinline preload="auto" autoplay></video>
+  <div class="overlay">
+    <div class="text" id="t1">INSTAGRAM</div>
+    <div class="text" id="t2">EDICIÓN</div>
+    <div class="text" id="t3">PRO</div>
+    <div class="bar" id="bar"></div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const video=document.getElementById('baseVideo');
+const tl=gsap.timeline({paused:true});
+const DUR_REFE=53.53333333333333;
+const DUR_INST=37.14501111111111;
+video.play().catch(()=>{});
+fetch('scenes.json').then(r=>r.json()).then(data=>{
+  const scenes=data.scene_times_inst||[];
+  tl.set(video,{currentTime:0});
+  tl.to('#bar',{scaleX:1,duration:DUR_REFE,ease:'none'},0);
+  const texts=['#t1','#t2','#t3'];
+  scenes.forEach((t,i)=>{
+    const refTime=t*DUR_REFE/DUR_INST;
+    const idx=i%texts.length;
+    tl.to(texts[idx],{opacity:1,y:0,scale:1,duration:0.25,ease:'power4.out'},refTime)
+      .to(texts[idx],{opacity:0,y:-20,scale:.95,duration:0.25,ease:'power4.in'},refTime+1.2);
+    tl.set(video,{currentTime:t},refTime);
+  });
+  tl.set(video,{currentTime:DUR_INST},DUR_REFE);
+});
+window.__timelines={main:tl};
+</script>
+</body>
+</html>
+
