@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
       - name: Render with HyperFrames
-        run: npx hyperframes render . --output ./out --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
+        run: npx hyperframes render . --output ./out/render.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
