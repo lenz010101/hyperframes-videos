@@ -26,8 +26,8 @@ jobs:
         run: npm ci || npm install
       - name: Render with HyperFrames
         run: npx hyperframes render . --output ./out/render.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
-      - name: Mux audio from refe
-        run: ffmpeg -y -i ./out/render.mp4 -i ./refe.mp4 -map 0:v -map 1:a -c:v copy -c:a aac -shortest ./out/render_with_audio.mp4
+      - name: Mux Instagram audio
+        run: ffmpeg -y -i ./out/render.mp4 -i ./Instagram.mp4 -map 0:v -map 1:a -c:v copy -c:a aac -shortest ./out/render_with_instagram_audio.mp4
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
