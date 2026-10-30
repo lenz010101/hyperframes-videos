@@ -1,0 +1,1 @@
+{"name":"hyperframes-instagram-edit","version":"1.0.0","scripts":{"render":"hyperframes render --input ./index.html --output ./out --fps 30 --width 536 --height 954"}}

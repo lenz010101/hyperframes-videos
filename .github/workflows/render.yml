@@ -1,0 +1,36 @@
+name: HyperFrames Render
+on:
+  workflow_dispatch:
+    inputs:
+      fps:
+        description: "FPS"
+        required: true
+        default: "30"
+      width:
+        description: "Width"
+        required: true
+        default: "536"
+      height:
+        description: "Height"
+        required: true
+        default: "954"
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm ci || npm install
+      - name: Render with HyperFrames
+        run: npx hyperframes render --input ./index.html --output ./out --fps ${{ github.event.inputs.fps }} --width ${{ github.event.inputs.width }} --height ${{ github.event.inputs.height }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyperframes-render
+          path: out/
+          retention-days: 7
