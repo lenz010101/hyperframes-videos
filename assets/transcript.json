@@ -1,0 +1,794 @@
+[
+  {
+    "id": "w0",
+    "text": "Combination",
+    "start": 0.64,
+    "end": 0.96
+  },
+  {
+    "id": "w1",
+    "text": "for",
+    "start": 1.04,
+    "end": 1.12
+  },
+  {
+    "id": "w2",
+    "text": "the",
+    "start": 1.12,
+    "end": 1.2
+  },
+  {
+    "id": "w3",
+    "text": "calls",
+    "start": 1.2,
+    "end": 1.44
+  },
+  {
+    "id": "w4",
+    "text": "that",
+    "start": 2.16,
+    "end": 2.24
+  },
+  {
+    "id": "w5",
+    "text": "the",
+    "start": 2.4,
+    "end": 2.48
+  },
+  {
+    "id": "w6",
+    "text": "society",
+    "start": 3.44,
+    "end": 3.84
+  },
+  {
+    "id": "w7",
+    "text": "necessity",
+    "start": 4.08,
+    "end": 4.48
+  },
+  {
+    "id": "w8",
+    "text": "more",
+    "start": 4.64,
+    "end": 4.72
+  },
+  {
+    "id": "w9",
+    "text": "in",
+    "start": 5.04,
+    "end": 5.12
+  },
+  {
+    "id": "w10",
+    "text": "fact",
+    "start": 5.28,
+    "end": 5.44
+  },
+  {
+    "id": "w11",
+    "text": "education,",
+    "start": 5.92,
+    "end": 6.56
+  },
+  {
+    "id": "w12",
+    "text": "infrastructure,",
+    "start": 6.8,
+    "end": 7.68
+  },
+  {
+    "id": "w13",
+    "text": "Salud,",
+    "start": 7.88,
+    "end": 8.52
+  },
+  {
+    "id": "w14",
+    "text": "apoyos.",
+    "start": 8.52,
+    "end": 9.08
+  },
+  {
+    "id": "w15",
+    "text": "La",
+    "start": 9.08,
+    "end": 9.16
+  },
+  {
+    "id": "w16",
+    "text": "vieja",
+    "start": 9.16,
+    "end": 9.4
+  },
+  {
+    "id": "w17",
+    "text": "the",
+    "start": 9.2,
+    "end": 9.28
+  },
+  {
+    "id": "w18",
+    "text": "political",
+    "start": 9.76,
+    "end": 10.08
+  },
+  {
+    "id": "w19",
+    "text": "is",
+    "start": 10.32,
+    "end": 10.4
+  },
+  {
+    "id": "w20",
+    "text": "obsolete.",
+    "start": 10.64,
+    "end": 11.28
+  },
+  {
+    "id": "w21",
+    "text": "And",
+    "start": 11.28,
+    "end": 11.36
+  },
+  {
+    "id": "w22",
+    "text": "it's",
+    "start": 11.44,
+    "end": 11.6
+  },
+  {
+    "id": "w23",
+    "text": "necessary",
+    "start": 12.08,
+    "end": 12.56
+  },
+  {
+    "id": "w24",
+    "text": "the",
+    "start": 12.8,
+    "end": 12.88
+  },
+  {
+    "id": "w25",
+    "text": "host",
+    "start": 12.96,
+    "end": 13.12
+  },
+  {
+    "id": "w26",
+    "text": "cada",
+    "start": 13.48,
+    "end": 13.72
+  },
+  {
+    "id": "w27",
+    "text": "día",
+    "start": 13.72,
+    "end": 13.96
+  },
+  {
+    "id": "w28",
+    "text": "participando",
+    "start": 13.96,
+    "end": 14.36
+  },
+  {
+    "id": "w29",
+    "text": "participants.",
+    "start": 14.16,
+    "end": 14.88
+  },
+  {
+    "id": "w30",
+    "text": "Hovers",
+    "start": 15.04,
+    "end": 15.28
+  },
+  {
+    "id": "w31",
+    "text": "with",
+    "start": 15.44,
+    "end": 15.52
+  },
+  {
+    "id": "w32",
+    "text": "mentefresh,",
+    "start": 15.6,
+    "end": 16.48
+  },
+  {
+    "id": "w33",
+    "text": "conviction,",
+    "start": 16.8,
+    "end": 17.52
+  },
+  {
+    "id": "w34",
+    "text": "with",
+    "start": 17.76,
+    "end": 18
+  },
+  {
+    "id": "w35",
+    "text": "participation,",
+    "start": 18.24,
+    "end": 19.12
+  },
+  {
+    "id": "w36",
+    "text": "preparation.",
+    "start": 19.44,
+    "end": 21.28
+  },
+  {
+    "id": "w37",
+    "text": "nuestra",
+    "start": 20.28,
+    "end": 20.6
+  },
+  {
+    "id": "w38",
+    "text": "ciudadanía.",
+    "start": 20.68,
+    "end": 21.56
+  },
+  {
+    "id": "w39",
+    "text": "Pues",
+    "start": 21.56,
+    "end": 21.8
+  },
+  {
+    "id": "w40",
+    "text": "por",
+    "start": 21.88,
+    "end": 22.04
+  },
+  {
+    "id": "w41",
+    "text": "lo",
+    "start": 22.04,
+    "end": 22.2
+  },
+  {
+    "id": "w42",
+    "text": "mismo,",
+    "start": 22.2,
+    "end": 22.52
+  },
+  {
+    "id": "w43",
+    "text": "porque",
+    "start": 22.52,
+    "end": 22.76
+  },
+  {
+    "id": "w44",
+    "text": "somos",
+    "start": 22.76,
+    "end": 23.08
+  },
+  {
+    "id": "w45",
+    "text": "el",
+    "start": 23.08,
+    "end": 23.24
+  },
+  {
+    "id": "w46",
+    "text": "futuro",
+    "start": 23.24,
+    "end": 23.56
+  },
+  {
+    "id": "w47",
+    "text": "de",
+    "start": 23.56,
+    "end": 23.64
+  },
+  {
+    "id": "w48",
+    "text": "México,",
+    "start": 23.64,
+    "end": 23.96
+  },
+  {
+    "id": "w49",
+    "text": "tenemos",
+    "start": 24.04,
+    "end": 24.28
+  },
+  {
+    "id": "w50",
+    "text": "We",
+    "start": 24.24,
+    "end": 24.32
+  },
+  {
+    "id": "w51",
+    "text": "have",
+    "start": 24.32,
+    "end": 24.4
+  },
+  {
+    "id": "w52",
+    "text": "to",
+    "start": 24.56,
+    "end": 24.72
+  },
+  {
+    "id": "w53",
+    "text": "participate.",
+    "start": 24.72,
+    "end": 25.28
+  },
+  {
+    "id": "w54",
+    "text": "O",
+    "start": 25.32,
+    "end": 25.4
+  },
+  {
+    "id": "w55",
+    "text": "sea,",
+    "start": 25.4,
+    "end": 25.64
+  },
+  {
+    "id": "w56",
+    "text": "tenemos",
+    "start": 25.72,
+    "end": 26.12
+  },
+  {
+    "id": "w57",
+    "text": "que",
+    "start": 26.12,
+    "end": 26.36
+  },
+  {
+    "id": "w58",
+    "text": "levantar",
+    "start": 26.36,
+    "end": 26.84
+  },
+  {
+    "id": "w59",
+    "text": "la",
+    "start": 26.84,
+    "end": 26.92
+  },
+  {
+    "id": "w60",
+    "text": "mano,",
+    "start": 26.92,
+    "end": 27.32
+  },
+  {
+    "id": "w61",
+    "text": "perder",
+    "start": 27.32,
+    "end": 27.64
+  },
+  {
+    "id": "w62",
+    "text": "el",
+    "start": 27.64,
+    "end": 27.8
+  },
+  {
+    "id": "w63",
+    "text": "miedo",
+    "start": 27.8,
+    "end": 28.04
+  },
+  {
+    "id": "w64",
+    "text": "a",
+    "start": 28.12,
+    "end": 28.2
+  },
+  {
+    "id": "w65",
+    "text": "lo",
+    "start": 28.2,
+    "end": 28.36
+  },
+  {
+    "id": "w66",
+    "text": "mejor",
+    "start": 28.36,
+    "end": 28.52
+  },
+  {
+    "id": "w67",
+    "text": "del",
+    "start": 28.6,
+    "end": 28.84
+  },
+  {
+    "id": "w68",
+    "text": "que",
+    "start": 28.84,
+    "end": 29
+  },
+  {
+    "id": "w69",
+    "text": "dirán.",
+    "start": 29,
+    "end": 29.4
+  },
+  {
+    "id": "w70",
+    "text": "Participar.",
+    "start": 29.48,
+    "end": 29.96
+  },
+  {
+    "id": "w71",
+    "text": "Participant",
+    "start": 29.52,
+    "end": 30.08
+  },
+  {
+    "id": "w72",
+    "text": "is",
+    "start": 30.32,
+    "end": 30.4
+  },
+  {
+    "id": "w73",
+    "text": "como",
+    "start": 30.6,
+    "end": 30.68
+  },
+  {
+    "id": "w74",
+    "text": "se",
+    "start": 30.84,
+    "end": 30.92
+  },
+  {
+    "id": "w75",
+    "text": "van",
+    "start": 30.92,
+    "end": 31.16
+  },
+  {
+    "id": "w76",
+    "text": "quitando",
+    "start": 31.16,
+    "end": 31.72
+  },
+  {
+    "id": "w77",
+    "text": "esas",
+    "start": 31.72,
+    "end": 32.12
+  },
+  {
+    "id": "w78",
+    "text": "cosas",
+    "start": 32.12,
+    "end": 32.44
+  },
+  {
+    "id": "w79",
+    "text": "que",
+    "start": 32.44,
+    "end": 32.6
+  },
+  {
+    "id": "w80",
+    "text": "vamos",
+    "start": 32.6,
+    "end": 32.84
+  },
+  {
+    "id": "w81",
+    "text": "cargando",
+    "start": 32.84,
+    "end": 33.24
+  },
+  {
+    "id": "w82",
+    "text": "carging.",
+    "start": 32.88,
+    "end": 33.36
+  },
+  {
+    "id": "w83",
+    "text": "O",
+    "start": 33.4,
+    "end": 33.48
+  },
+  {
+    "id": "w84",
+    "text": "sea",
+    "start": 33.48,
+    "end": 33.64
+  },
+  {
+    "id": "w85",
+    "text": "realmente",
+    "start": 33.72,
+    "end": 33.88
+  },
+  {
+    "id": "w86",
+    "text": "que",
+    "start": 34.12,
+    "end": 34.2
+  },
+  {
+    "id": "w87",
+    "text": "podemos",
+    "start": 34.28,
+    "end": 34.6
+  },
+  {
+    "id": "w88",
+    "text": "perder",
+    "start": 34.6,
+    "end": 34.84
+  },
+  {
+    "id": "w89",
+    "text": "es",
+    "start": 34.92,
+    "end": 35
+  },
+  {
+    "id": "w90",
+    "text": "It's",
+    "start": 35.04,
+    "end": 35.28
+  },
+  {
+    "id": "w91",
+    "text": "more",
+    "start": 35.28,
+    "end": 35.36
+  },
+  {
+    "id": "w92",
+    "text": "than",
+    "start": 36.24,
+    "end": 36.32
+  },
+  {
+    "id": "w93",
+    "text": "what",
+    "start": 36.48,
+    "end": 36.56
+  },
+  {
+    "id": "w94",
+    "text": "we",
+    "start": 36.8,
+    "end": 36.88
+  },
+  {
+    "id": "w95",
+    "text": "can.",
+    "start": 37.04,
+    "end": 37.28
+  },
+  {
+    "id": "w96",
+    "text": "Que",
+    "start": 37.4,
+    "end": 37.56
+  },
+  {
+    "id": "w97",
+    "text": "yo,",
+    "start": 37.56,
+    "end": 37.8
+  },
+  {
+    "id": "w98",
+    "text": "como",
+    "start": 37.8,
+    "end": 38.04
+  },
+  {
+    "id": "w99",
+    "text": "ciudadana,",
+    "start": 38.04,
+    "end": 38.6
+  },
+  {
+    "id": "w100",
+    "text": "joven,",
+    "start": 38.6,
+    "end": 39.08
+  },
+  {
+    "id": "w101",
+    "text": "mujer,",
+    "start": 39.08,
+    "end": 39.64
+  },
+  {
+    "id": "w102",
+    "text": "profesora,",
+    "start": 39.64,
+    "end": 40.28
+  },
+  {
+    "id": "w103",
+    "text": "poder",
+    "start": 40.44,
+    "end": 40.6
+  },
+  {
+    "id": "w104",
+    "text": "proponer",
+    "start": 40.84,
+    "end": 41.4
+  },
+  {
+    "id": "w105",
+    "text": "aspectos",
+    "start": 41.4,
+    "end": 41.96
+  },
+  {
+    "id": "w106",
+    "text": "que",
+    "start": 41.96,
+    "end": 42.12
+  },
+  {
+    "id": "w107",
+    "text": "yo",
+    "start": 42.12,
+    "end": 42.28
+  },
+  {
+    "id": "w108",
+    "text": "he",
+    "start": 42.28,
+    "end": 42.44
+  },
+  {
+    "id": "w109",
+    "text": "visto",
+    "start": 42.44,
+    "end": 42.76
+  },
+  {
+    "id": "w110",
+    "text": "que",
+    "start": 42.92,
+    "end": 43.08
+  },
+  {
+    "id": "w111",
+    "text": "se",
+    "start": 43.08,
+    "end": 43.24
+  },
+  {
+    "id": "w112",
+    "text": "pueden",
+    "start": 43.24,
+    "end": 43.56
+  },
+  {
+    "id": "w113",
+    "text": "mejorar.",
+    "start": 43.56,
+    "end": 44.12
+  },
+  {
+    "id": "w114",
+    "text": "Y",
+    "start": 44.12,
+    "end": 44.28
+  },
+  {
+    "id": "w115",
+    "text": "And",
+    "start": 44.16,
+    "end": 44.4
+  },
+  {
+    "id": "w116",
+    "text": "it's",
+    "start": 44.4,
+    "end": 44.64
+  },
+  {
+    "id": "w117",
+    "text": "y",
+    "start": 45.08,
+    "end": 45.32
+  },
+  {
+    "id": "w118",
+    "text": "es",
+    "start": 45.32,
+    "end": 45.48
+  },
+  {
+    "id": "w119",
+    "text": "la",
+    "start": 45.48,
+    "end": 45.56
+  },
+  {
+    "id": "w120",
+    "text": "única.",
+    "start": 45.56,
+    "end": 46.04
+  },
+  {
+    "id": "w121",
+    "text": "the",
+    "start": 45.68,
+    "end": 45.84
+  },
+  {
+    "id": "w122",
+    "text": "only",
+    "start": 45.84,
+    "end": 46
+  },
+  {
+    "id": "w123",
+    "text": "manner",
+    "start": 46.16,
+    "end": 46.48
+  },
+  {
+    "id": "w124",
+    "text": "in",
+    "start": 46.48,
+    "end": 46.56
+  },
+  {
+    "id": "w125",
+    "text": "which",
+    "start": 46.72,
+    "end": 46.8
+  },
+  {
+    "id": "w126",
+    "text": "podemos",
+    "start": 46.92,
+    "end": 47.48
+  },
+  {
+    "id": "w127",
+    "text": "proponer",
+    "start": 47.48,
+    "end": 48.2
+  },
+  {
+    "id": "w128",
+    "text": "y",
+    "start": 48.2,
+    "end": 48.52
+  },
+  {
+    "id": "w129",
+    "text": "lograr",
+    "start": 48.76,
+    "end": 49.24
+  },
+  {
+    "id": "w130",
+    "text": "esos",
+    "start": 49.4,
+    "end": 49.72
+  },
+  {
+    "id": "w131",
+    "text": "cambios.",
+    "start": 49.72,
+    "end": 50.28
+  }
+]
