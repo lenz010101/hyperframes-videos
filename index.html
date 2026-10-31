@@ -45,15 +45,16 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
+      data-duration="5"
       data-width="1920"
       data-height="1080"
     >
-      <h1 data-hf-id="hf-v7pl" id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+      <h1 data-hf-id="hf-v7pl" id="title" class="clip" data-start="0" data-duration="5" data-track-index="0">HyperFrames + GitHub</h1>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 0);
+      tl.fromTo("#title", { opacity: 0, y: 40, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "power4.out" }, 0);
+      tl.to("#title", { opacity: 0.9, duration: 0.2 }, 3.5);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>
