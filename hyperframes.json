@@ -1,0 +1,2254 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
+  "registry": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
+  "paths": {
+    "blocks": "compositions",
+    "components": "compositions/components",
+    "assets": "assets"
+  },
+  "media": {
+    "autoProxy": true
+  },
+  "registryItems": [
+    {
+      "name": "ai-answer-rank",
+      "type": "hyperframes:block",
+      "target": "compositions/ai-answer-rank.html"
+    },
+    {
+      "name": "ai-chat-reveal",
+      "type": "hyperframes:block",
+      "target": "compositions/ai-chat-reveal.html"
+    },
+    {
+      "name": "app-showcase",
+      "type": "hyperframes:block",
+      "target": "compositions/app-showcase.html"
+    },
+    {
+      "name": "apple-money-count",
+      "type": "hyperframes:block",
+      "target": "compositions/apple-money-count.html"
+    },
+    {
+      "name": "aurora",
+      "type": "hyperframes:block",
+      "target": "compositions/aurora.html"
+    },
+    {
+      "name": "bar-chart-race",
+      "type": "hyperframes:block",
+      "target": "compositions/bar-chart-race.html"
+    },
+    {
+      "name": "beat-freeze-cut",
+      "type": "hyperframes:block",
+      "target": "compositions/beat-freeze-cut.html"
+    },
+    {
+      "name": "blob",
+      "type": "hyperframes:block",
+      "target": "compositions/blob.html"
+    },
+    {
+      "name": "blue-sweater-intro-video",
+      "type": "hyperframes:block",
+      "target": "compositions/blue-sweater-intro-video.html"
+    },
+    {
+      "name": "camcorder-hud",
+      "type": "hyperframes:block",
+      "target": "compositions/camcorder-hud.html"
+    },
+    {
+      "name": "camera-dolly-zoom",
+      "type": "hyperframes:block",
+      "target": "compositions/camera-dolly-zoom.html"
+    },
+    {
+      "name": "canopy-part-title",
+      "type": "hyperframes:block",
+      "target": "compositions/canopy-part-title/canopy-part-title.html"
+    },
+    {
+      "name": "carousel-circle-1",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-circle-1.html"
+    },
+    {
+      "name": "carousel-circle-2",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-circle-2.html"
+    },
+    {
+      "name": "carousel-circle-3",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-circle-3.html"
+    },
+    {
+      "name": "carousel-circle-4",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-circle-4.html"
+    },
+    {
+      "name": "carousel-circle-5",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-circle-5.html"
+    },
+    {
+      "name": "carousel-orbit-1",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-orbit-1.html"
+    },
+    {
+      "name": "carousel-orbit-2",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-orbit-2.html"
+    },
+    {
+      "name": "carousel-orbit-3",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-orbit-3.html"
+    },
+    {
+      "name": "carousel-orbit-4",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-orbit-4.html"
+    },
+    {
+      "name": "carousel-orbit-5",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-orbit-5.html"
+    },
+    {
+      "name": "carousel-path-1",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-path-1.html"
+    },
+    {
+      "name": "carousel-path-2",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-path-2.html"
+    },
+    {
+      "name": "carousel-path-3",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-path-3.html"
+    },
+    {
+      "name": "carousel-path-4",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-path-4.html"
+    },
+    {
+      "name": "carousel-path-5",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-path-5.html"
+    },
+    {
+      "name": "carousel-text-circle-1",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-text-circle-1.html"
+    },
+    {
+      "name": "carousel-text-circle-2",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-text-circle-2.html"
+    },
+    {
+      "name": "carousel-text-circle-3",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-text-circle-3.html"
+    },
+    {
+      "name": "carousel-text-circle-4",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-text-circle-4.html"
+    },
+    {
+      "name": "carousel-text-circle-5",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-text-circle-5.html"
+    },
+    {
+      "name": "carousel-vision-1",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-vision-1.html"
+    },
+    {
+      "name": "carousel-vision-2",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-vision-2.html"
+    },
+    {
+      "name": "carousel-vision-3",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-vision-3.html"
+    },
+    {
+      "name": "carousel-vision-4",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-vision-4.html"
+    },
+    {
+      "name": "carousel-vision-5",
+      "type": "hyperframes:block",
+      "target": "compositions/carousel-vision-5.html"
+    },
+    {
+      "name": "chatgpt-exchange",
+      "type": "hyperframes:block",
+      "target": "compositions/chatgpt-exchange.html"
+    },
+    {
+      "name": "chromatic-radial-split",
+      "type": "hyperframes:block",
+      "target": "compositions/chromatic-radial-split.html"
+    },
+    {
+      "name": "chrome-orb",
+      "type": "hyperframes:block",
+      "target": "compositions/chrome-orb.html"
+    },
+    {
+      "name": "cinemagraph",
+      "type": "hyperframes:block",
+      "target": "compositions/cinemagraph.html"
+    },
+    {
+      "name": "cinematic-zoom",
+      "type": "hyperframes:block",
+      "target": "compositions/cinematic-zoom.html"
+    },
+    {
+      "name": "claude-exchange",
+      "type": "hyperframes:block",
+      "target": "compositions/claude-exchange.html"
+    },
+    {
+      "name": "code-3d-extrude",
+      "type": "hyperframes:block",
+      "target": "compositions/code-3d-extrude.html"
+    },
+    {
+      "name": "code-diff",
+      "type": "hyperframes:block",
+      "target": "compositions/code-diff.html"
+    },
+    {
+      "name": "code-highlight",
+      "type": "hyperframes:block",
+      "target": "compositions/code-highlight.html"
+    },
+    {
+      "name": "code-morph",
+      "type": "hyperframes:block",
+      "target": "compositions/code-morph.html"
+    },
+    {
+      "name": "code-particle-assemble",
+      "type": "hyperframes:block",
+      "target": "compositions/code-particle-assemble.html"
+    },
+    {
+      "name": "code-scroll",
+      "type": "hyperframes:block",
+      "target": "compositions/code-scroll.html"
+    },
+    {
+      "name": "code-shader-dissolve",
+      "type": "hyperframes:block",
+      "target": "compositions/code-shader-dissolve.html"
+    },
+    {
+      "name": "code-slice-hero",
+      "type": "hyperframes:block",
+      "target": "compositions/code-slice-hero/code-slice-hero.html"
+    },
+    {
+      "name": "code-snippet-apple-terminal-pro",
+      "type": "hyperframes:block",
+      "target": "compositions/code-snippet-apple-terminal-pro.html"
+    },
+    {
+      "name": "code-snippet-dark-2026",
+      "type": "hyperframes:block",
+      "target": "compositions/code-snippet-dark-2026.html"
+    },
+    {
+      "name": "code-snippet-dark-modern",
+      "type": "hyperframes:block",
+      "target": "compositions/code-snippet-dark-modern.html"
+    },
+    {
+      "name": "code-typing",
+      "type": "hyperframes:block",
+      "target": "compositions/code-typing.html"
+    },
+    {
+      "name": "color-wheel",
+      "type": "hyperframes:block",
+      "target": "compositions/color-wheel.html"
+    },
+    {
+      "name": "cosmic-orb",
+      "type": "hyperframes:block",
+      "target": "compositions/cosmic-orb.html"
+    },
+    {
+      "name": "cross-warp-morph",
+      "type": "hyperframes:block",
+      "target": "compositions/cross-warp-morph.html"
+    },
+    {
+      "name": "cuboid-carousel",
+      "type": "hyperframes:block",
+      "target": "compositions/cuboid-carousel/cuboid-carousel.html"
+    },
+    {
+      "name": "data-chart",
+      "type": "hyperframes:block",
+      "target": "compositions/data-chart.html"
+    },
+    {
+      "name": "domain-warp-dissolve",
+      "type": "hyperframes:block",
+      "target": "compositions/domain-warp-dissolve.html"
+    },
+    {
+      "name": "editorial-flash-overlay",
+      "type": "hyperframes:block",
+      "target": "compositions/editorial-flash-overlay.html"
+    },
+    {
+      "name": "exploded-stack",
+      "type": "hyperframes:block",
+      "target": "compositions/exploded-stack.html"
+    },
+    {
+      "name": "extruded-logo",
+      "type": "hyperframes:block",
+      "target": "compositions/extruded-logo.html"
+    },
+    {
+      "name": "falling-lines",
+      "type": "hyperframes:block",
+      "target": "compositions/falling-lines.html"
+    },
+    {
+      "name": "flash-through-white",
+      "type": "hyperframes:block",
+      "target": "compositions/flash-through-white.html"
+    },
+    {
+      "name": "flowchart",
+      "type": "hyperframes:block",
+      "target": "compositions/flowchart.html"
+    },
+    {
+      "name": "flowchart-vertical",
+      "type": "hyperframes:block",
+      "target": "compositions/flowchart-vertical.html"
+    },
+    {
+      "name": "flowing-gradient",
+      "type": "hyperframes:block",
+      "target": "compositions/flowing-gradient.html"
+    },
+    {
+      "name": "fractal-noise",
+      "type": "hyperframes:block",
+      "target": "compositions/fractal-noise.html"
+    },
+    {
+      "name": "freeze-frame-dressing",
+      "type": "hyperframes:block",
+      "target": "compositions/freeze-frame-dressing.html"
+    },
+    {
+      "name": "frost",
+      "type": "hyperframes:block",
+      "target": "compositions/frost.html"
+    },
+    {
+      "name": "frost-sequence-camera-orbit",
+      "type": "hyperframes:block",
+      "target": "compositions/frost-sequence-camera-orbit/frost-sequence-camera-orbit.html"
+    },
+    {
+      "name": "gabor-noise",
+      "type": "hyperframes:block",
+      "target": "compositions/gabor-noise.html"
+    },
+    {
+      "name": "gallery-tunnel",
+      "type": "hyperframes:block",
+      "target": "compositions/gallery-tunnel.html"
+    },
+    {
+      "name": "glass-hero",
+      "type": "hyperframes:block",
+      "target": "compositions/glass-hero.html"
+    },
+    {
+      "name": "glass-shard-title",
+      "type": "hyperframes:block",
+      "target": "compositions/glass-shard-title/glass-shard-title.html"
+    },
+    {
+      "name": "glitch",
+      "type": "hyperframes:block",
+      "target": "compositions/glitch.html"
+    },
+    {
+      "name": "godrays",
+      "type": "hyperframes:block",
+      "target": "compositions/godrays.html"
+    },
+    {
+      "name": "goo",
+      "type": "hyperframes:block",
+      "target": "compositions/goo.html"
+    },
+    {
+      "name": "gooey-split",
+      "type": "hyperframes:block",
+      "target": "compositions/gooey-split.html"
+    },
+    {
+      "name": "gravitational-lens",
+      "type": "hyperframes:block",
+      "target": "compositions/gravitational-lens.html"
+    },
+    {
+      "name": "halftone-field",
+      "type": "hyperframes:block",
+      "target": "compositions/halftone-field.html"
+    },
+    {
+      "name": "heatmap",
+      "type": "hyperframes:block",
+      "target": "compositions/heatmap.html"
+    },
+    {
+      "name": "heygen-avatar-promo-card",
+      "type": "hyperframes:block",
+      "target": "compositions/heygen-avatar-promo-card.html"
+    },
+    {
+      "name": "hologram",
+      "type": "hyperframes:block",
+      "target": "compositions/hologram.html"
+    },
+    {
+      "name": "holographic",
+      "type": "hyperframes:block",
+      "target": "compositions/holographic.html"
+    },
+    {
+      "name": "hw-frame",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-frame.html"
+    },
+    {
+      "name": "hw-path-text",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-path-text.html"
+    },
+    {
+      "name": "hw-pipeline",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-pipeline.html"
+    },
+    {
+      "name": "hw-scribble-transition",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-scribble-transition.html"
+    },
+    {
+      "name": "hw-text-cloud",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-text-cloud.html"
+    },
+    {
+      "name": "hw-title",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-title.html"
+    },
+    {
+      "name": "hw-write-title",
+      "type": "hyperframes:block",
+      "target": "compositions/hw-write-title.html"
+    },
+    {
+      "name": "instagram-follow",
+      "type": "hyperframes:block",
+      "target": "compositions/instagram-follow.html"
+    },
+    {
+      "name": "ios26-liquid-glass",
+      "type": "hyperframes:block",
+      "target": "compositions/ios26-liquid-glass.html"
+    },
+    {
+      "name": "lens-flare",
+      "type": "hyperframes:block",
+      "target": "compositions/lens-flare.html"
+    },
+    {
+      "name": "light-edge",
+      "type": "hyperframes:block",
+      "target": "compositions/light-edge.html"
+    },
+    {
+      "name": "light-leak",
+      "type": "hyperframes:block",
+      "target": "compositions/light-leak.html"
+    },
+    {
+      "name": "liquid-glass-notification",
+      "type": "hyperframes:block",
+      "target": "compositions/liquid-glass-notification.html"
+    },
+    {
+      "name": "liquid-glass-widgets",
+      "type": "hyperframes:block",
+      "target": "compositions/liquid-glass-widgets.html"
+    },
+    {
+      "name": "liquid-metal",
+      "type": "hyperframes:block",
+      "target": "compositions/liquid-metal.html"
+    },
+    {
+      "name": "logo-outro",
+      "type": "hyperframes:block",
+      "target": "compositions/logo-outro.html"
+    },
+    {
+      "name": "lottie-character-walk",
+      "type": "hyperframes:block",
+      "target": "compositions/lottie-character-walk/lottie-character-walk.html"
+    },
+    {
+      "name": "lower-third-bild",
+      "type": "hyperframes:block",
+      "target": "compositions/lower-third-bild.html"
+    },
+    {
+      "name": "lt-accent-underline",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-accent-underline.html"
+    },
+    {
+      "name": "lt-bold-block",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-bold-block.html"
+    },
+    {
+      "name": "lt-clean-bar",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-clean-bar.html"
+    },
+    {
+      "name": "lt-color-block",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-color-block.html"
+    },
+    {
+      "name": "lt-dark-card",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-dark-card.html"
+    },
+    {
+      "name": "lt-kicker-name",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-kicker-name.html"
+    },
+    {
+      "name": "lt-mask-reveal",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-mask-reveal.html"
+    },
+    {
+      "name": "lt-neon-border",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-neon-border.html"
+    },
+    {
+      "name": "lt-side-rule",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-side-rule.html"
+    },
+    {
+      "name": "lt-soft-pill",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-soft-pill.html"
+    },
+    {
+      "name": "lt-stack-bars",
+      "type": "hyperframes:block",
+      "target": "compositions/lt-stack-bars.html"
+    },
+    {
+      "name": "macos-notification",
+      "type": "hyperframes:block",
+      "target": "compositions/macos-notification.html"
+    },
+    {
+      "name": "macos-tahoe-liquid-glass",
+      "type": "hyperframes:block",
+      "target": "compositions/macos-tahoe-liquid-glass.html"
+    },
+    {
+      "name": "marble",
+      "type": "hyperframes:block",
+      "target": "compositions/marble.html"
+    },
+    {
+      "name": "mesh-gradient",
+      "type": "hyperframes:block",
+      "target": "compositions/mesh-gradient.html"
+    },
+    {
+      "name": "message-thread-reveal",
+      "type": "hyperframes:block",
+      "target": "compositions/message-thread-reveal.html"
+    },
+    {
+      "name": "mk-background",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-background.html"
+    },
+    {
+      "name": "mk-callout-highlight",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-callout-highlight.html"
+    },
+    {
+      "name": "mk-clone-wall-transition",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-clone-wall-transition.html"
+    },
+    {
+      "name": "mk-line-graph",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-line-graph.html"
+    },
+    {
+      "name": "mk-placeholder-grid",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-placeholder-grid.html"
+    },
+    {
+      "name": "mk-progress-stat",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-progress-stat.html"
+    },
+    {
+      "name": "mk-specs-list",
+      "type": "hyperframes:block",
+      "target": "compositions/mk-specs-list.html"
+    },
+    {
+      "name": "nebula",
+      "type": "hyperframes:block",
+      "target": "compositions/nebula.html"
+    },
+    {
+      "name": "news-ticker",
+      "type": "hyperframes:block",
+      "target": "compositions/news-ticker.html"
+    },
+    {
+      "name": "north-korea-locked-down",
+      "type": "hyperframes:block",
+      "target": "compositions/north-korea-locked-down.html"
+    },
+    {
+      "name": "notes-reveal",
+      "type": "hyperframes:block",
+      "target": "compositions/notes-reveal.html"
+    },
+    {
+      "name": "notification-cascade",
+      "type": "hyperframes:block",
+      "target": "compositions/notification-cascade.html"
+    },
+    {
+      "name": "nyc-paris-flight",
+      "type": "hyperframes:block",
+      "target": "compositions/nyc-paris-flight.html"
+    },
+    {
+      "name": "obsidian",
+      "type": "hyperframes:block",
+      "target": "compositions/obsidian.html"
+    },
+    {
+      "name": "orbit-card",
+      "type": "hyperframes:block",
+      "target": "compositions/orbit-card/orbit-card.html"
+    },
+    {
+      "name": "organic-light-leak-overlay",
+      "type": "hyperframes:block",
+      "target": "compositions/organic-light-leak-overlay.html"
+    },
+    {
+      "name": "oscilloscope-trace",
+      "type": "hyperframes:block",
+      "target": "compositions/oscilloscope-trace.html"
+    },
+    {
+      "name": "plasma",
+      "type": "hyperframes:block",
+      "target": "compositions/plasma.html"
+    },
+    {
+      "name": "plastic",
+      "type": "hyperframes:block",
+      "target": "compositions/plastic.html"
+    },
+    {
+      "name": "prism",
+      "type": "hyperframes:block",
+      "target": "compositions/prism.html"
+    },
+    {
+      "name": "product-turntable",
+      "type": "hyperframes:block",
+      "target": "compositions/product-turntable.html"
+    },
+    {
+      "name": "rack-focus",
+      "type": "hyperframes:block",
+      "target": "compositions/rack-focus.html"
+    },
+    {
+      "name": "reddit-post",
+      "type": "hyperframes:block",
+      "target": "compositions/reddit-post.html"
+    },
+    {
+      "name": "ridged-burn",
+      "type": "hyperframes:block",
+      "target": "compositions/ridged-burn.html"
+    },
+    {
+      "name": "ripple-waves",
+      "type": "hyperframes:block",
+      "target": "compositions/ripple-waves.html"
+    },
+    {
+      "name": "ripples",
+      "type": "hyperframes:block",
+      "target": "compositions/ripples.html"
+    },
+    {
+      "name": "sdf-iris",
+      "type": "hyperframes:block",
+      "target": "compositions/sdf-iris.html"
+    },
+    {
+      "name": "share-sheet-carousel",
+      "type": "hyperframes:block",
+      "target": "compositions/share-sheet-carousel.html"
+    },
+    {
+      "name": "sine-wave",
+      "type": "hyperframes:block",
+      "target": "compositions/sine-wave.html"
+    },
+    {
+      "name": "slack-notification-ad",
+      "type": "hyperframes:block",
+      "target": "compositions/slack-notification-ad.html"
+    },
+    {
+      "name": "snow",
+      "type": "hyperframes:block",
+      "target": "compositions/snow.html"
+    },
+    {
+      "name": "spain-map",
+      "type": "hyperframes:block",
+      "target": "compositions/spain-map.html"
+    },
+    {
+      "name": "spiral",
+      "type": "hyperframes:block",
+      "target": "compositions/spiral.html"
+    },
+    {
+      "name": "spiral-galaxy",
+      "type": "hyperframes:block",
+      "target": "compositions/spiral-galaxy.html"
+    },
+    {
+      "name": "split-flap-board",
+      "type": "hyperframes:block",
+      "target": "compositions/split-flap-board.html"
+    },
+    {
+      "name": "spotify-card",
+      "type": "hyperframes:block",
+      "target": "compositions/spotify-card.html"
+    },
+    {
+      "name": "starfield",
+      "type": "hyperframes:block",
+      "target": "compositions/starfield.html"
+    },
+    {
+      "name": "strands",
+      "type": "hyperframes:block",
+      "target": "compositions/strands.html"
+    },
+    {
+      "name": "stripes",
+      "type": "hyperframes:block",
+      "target": "compositions/stripes.html"
+    },
+    {
+      "name": "sun-burst",
+      "type": "hyperframes:block",
+      "target": "compositions/sun-burst.html"
+    },
+    {
+      "name": "swirl",
+      "type": "hyperframes:block",
+      "target": "compositions/swirl.html"
+    },
+    {
+      "name": "swirl-vortex",
+      "type": "hyperframes:block",
+      "target": "compositions/swirl-vortex.html"
+    },
+    {
+      "name": "thermal-distortion",
+      "type": "hyperframes:block",
+      "target": "compositions/thermal-distortion.html"
+    },
+    {
+      "name": "thin-film",
+      "type": "hyperframes:block",
+      "target": "compositions/thin-film.html"
+    },
+    {
+      "name": "thread-message-stack",
+      "type": "hyperframes:block",
+      "target": "compositions/thread-message-stack.html"
+    },
+    {
+      "name": "tiktok-follow",
+      "type": "hyperframes:block",
+      "target": "compositions/tiktok-follow.html"
+    },
+    {
+      "name": "transitions-3d",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-3d.html"
+    },
+    {
+      "name": "transitions-blur",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-blur.html"
+    },
+    {
+      "name": "transitions-cover",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-cover.html"
+    },
+    {
+      "name": "transitions-destruction",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-destruction.html"
+    },
+    {
+      "name": "transitions-dissolve",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-dissolve.html"
+    },
+    {
+      "name": "transitions-distortion",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-distortion.html"
+    },
+    {
+      "name": "transitions-grid",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-grid.html"
+    },
+    {
+      "name": "transitions-light",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-light.html"
+    },
+    {
+      "name": "transitions-mechanical",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-mechanical.html"
+    },
+    {
+      "name": "transitions-other",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-other.html"
+    },
+    {
+      "name": "transitions-push",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-push.html"
+    },
+    {
+      "name": "transitions-radial",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-radial.html"
+    },
+    {
+      "name": "transitions-scale",
+      "type": "hyperframes:block",
+      "target": "compositions/transitions-scale.html"
+    },
+    {
+      "name": "ui-3d-reveal",
+      "type": "hyperframes:block",
+      "target": "compositions/ui-3d-reveal.html"
+    },
+    {
+      "name": "us-map",
+      "type": "hyperframes:block",
+      "target": "compositions/us-map.html"
+    },
+    {
+      "name": "us-map-bubble",
+      "type": "hyperframes:block",
+      "target": "compositions/us-map-bubble.html"
+    },
+    {
+      "name": "us-map-flow",
+      "type": "hyperframes:block",
+      "target": "compositions/us-map-flow.html"
+    },
+    {
+      "name": "us-map-hex",
+      "type": "hyperframes:block",
+      "target": "compositions/us-map-hex.html"
+    },
+    {
+      "name": "vfx-anamorphic-flare",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-anamorphic-flare.html"
+    },
+    {
+      "name": "vfx-iphone-device",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-iphone-device.html"
+    },
+    {
+      "name": "vfx-liquid-background",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-liquid-background.html"
+    },
+    {
+      "name": "vfx-liquid-glass",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-liquid-glass.html"
+    },
+    {
+      "name": "vfx-magnetic",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-magnetic.html"
+    },
+    {
+      "name": "vfx-portal",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-portal.html"
+    },
+    {
+      "name": "vfx-shatter",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-shatter.html"
+    },
+    {
+      "name": "vfx-text-cursor",
+      "type": "hyperframes:block",
+      "target": "compositions/vfx-text-cursor.html"
+    },
+    {
+      "name": "voronoi",
+      "type": "hyperframes:block",
+      "target": "compositions/voronoi.html"
+    },
+    {
+      "name": "vpn-youtube-spot",
+      "type": "hyperframes:block",
+      "target": "compositions/vpn-youtube-spot.html"
+    },
+    {
+      "name": "water",
+      "type": "hyperframes:block",
+      "target": "compositions/water.html"
+    },
+    {
+      "name": "waveform",
+      "type": "hyperframes:block",
+      "target": "compositions/waveform.html"
+    },
+    {
+      "name": "week-in-merges",
+      "type": "hyperframes:block",
+      "target": "compositions/week-in-merges.html"
+    },
+    {
+      "name": "weight-wave",
+      "type": "hyperframes:block",
+      "target": "compositions/weight-wave.html"
+    },
+    {
+      "name": "whip-pan",
+      "type": "hyperframes:block",
+      "target": "compositions/whip-pan.html"
+    },
+    {
+      "name": "wireframe-portal-title",
+      "type": "hyperframes:block",
+      "target": "compositions/wireframe-portal-title/wireframe-portal-title.html"
+    },
+    {
+      "name": "world-map",
+      "type": "hyperframes:block",
+      "target": "compositions/world-map.html"
+    },
+    {
+      "name": "worley-noise",
+      "type": "hyperframes:block",
+      "target": "compositions/worley-noise.html"
+    },
+    {
+      "name": "x-post",
+      "type": "hyperframes:block",
+      "target": "compositions/x-post.html"
+    },
+    {
+      "name": "yt-comment-card",
+      "type": "hyperframes:block",
+      "target": "compositions/yt-comment-card.html"
+    },
+    {
+      "name": "yt-lcd-background",
+      "type": "hyperframes:block",
+      "target": "compositions/yt-lcd-background.html"
+    },
+    {
+      "name": "yt-logo-intro",
+      "type": "hyperframes:block",
+      "target": "compositions/yt-logo-intro.html"
+    },
+    {
+      "name": "yt-lower-third",
+      "type": "hyperframes:block",
+      "target": "compositions/yt-lower-third.html"
+    },
+    {
+      "name": "yt-prism-title",
+      "type": "hyperframes:block",
+      "target": "compositions/yt-prism-title.html"
+    },
+    {
+      "name": "yt-vertical-fill",
+      "type": "hyperframes:block",
+      "target": "compositions/yt-vertical-fill.html"
+    },
+    {
+      "name": "agent-cursor",
+      "type": "hyperframes:component",
+      "target": "compositions/components/agent-cursor.html"
+    },
+    {
+      "name": "animated-bar-chart",
+      "type": "hyperframes:component",
+      "target": "compositions/components/animated-bar-chart.html"
+    },
+    {
+      "name": "arc-motion-path",
+      "type": "hyperframes:component",
+      "target": "compositions/components/arc-motion-path.html"
+    },
+    {
+      "name": "ascii-render-pass",
+      "type": "hyperframes:component",
+      "target": "compositions/components/ascii-render-pass.html"
+    },
+    {
+      "name": "ascii-trail-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/ascii-trail-reveal.html"
+    },
+    {
+      "name": "aurora-drift",
+      "type": "hyperframes:component",
+      "target": "compositions/components/aurora-drift.html"
+    },
+    {
+      "name": "avatar-cloud",
+      "type": "hyperframes:component",
+      "target": "compositions/components/avatar-cloud.html"
+    },
+    {
+      "name": "avatar-group-hover",
+      "type": "hyperframes:component",
+      "target": "compositions/components/avatar-group-hover.html"
+    },
+    {
+      "name": "badge-pop",
+      "type": "hyperframes:component",
+      "target": "compositions/components/badge-pop.html"
+    },
+    {
+      "name": "beat-accent",
+      "type": "hyperframes:component",
+      "target": "compositions/components/beat-accent.html"
+    },
+    {
+      "name": "beat-pulse-background",
+      "type": "hyperframes:component",
+      "target": "compositions/components/beat-pulse-background.html"
+    },
+    {
+      "name": "beat-timeline",
+      "type": "hyperframes:component",
+      "target": "compositions/components/beat-timeline.html"
+    },
+    {
+      "name": "before-after-wipe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/before-after-wipe.html"
+    },
+    {
+      "name": "blur-in",
+      "type": "hyperframes:component",
+      "target": "compositions/components/blur-in.html"
+    },
+    {
+      "name": "blur-out-up",
+      "type": "hyperframes:component",
+      "target": "compositions/components/blur-out-up.html"
+    },
+    {
+      "name": "bottom-up-letters",
+      "type": "hyperframes:component",
+      "target": "compositions/components/bottom-up-letters.html"
+    },
+    {
+      "name": "browser-device-stage",
+      "type": "hyperframes:component",
+      "target": "compositions/components/browser-device-stage.html"
+    },
+    {
+      "name": "camera-rig-depth-stack",
+      "type": "hyperframes:component",
+      "target": "compositions/components/camera-rig-depth-stack.html"
+    },
+    {
+      "name": "camera-scan-gate",
+      "type": "hyperframes:component",
+      "target": "compositions/components/camera-scan-gate.html"
+    },
+    {
+      "name": "camera-shake",
+      "type": "hyperframes:component",
+      "target": "compositions/components/camera-shake.html"
+    },
+    {
+      "name": "caption-blend-difference",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-blend-difference.html"
+    },
+    {
+      "name": "caption-camera-follow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-camera-follow.html"
+    },
+    {
+      "name": "caption-clip-wipe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-clip-wipe.html"
+    },
+    {
+      "name": "caption-editorial-emphasis",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-editorial-emphasis.html"
+    },
+    {
+      "name": "caption-emoji-pop",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-emoji-pop.html"
+    },
+    {
+      "name": "caption-glitch-rgb",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-glitch-rgb.html"
+    },
+    {
+      "name": "caption-gradient-fill",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-gradient-fill.html"
+    },
+    {
+      "name": "caption-highlight",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-highlight.html"
+    },
+    {
+      "name": "caption-kinetic-slam",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-kinetic-slam.html"
+    },
+    {
+      "name": "caption-matrix-decode",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-matrix-decode.html"
+    },
+    {
+      "name": "caption-neon-accent",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-neon-accent.html"
+    },
+    {
+      "name": "caption-neon-glow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-neon-glow.html"
+    },
+    {
+      "name": "caption-parallax-layers",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-parallax-layers.html"
+    },
+    {
+      "name": "caption-particle-burst",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-particle-burst.html"
+    },
+    {
+      "name": "caption-pill-karaoke",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-pill-karaoke.html"
+    },
+    {
+      "name": "caption-texture",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-texture.html"
+    },
+    {
+      "name": "caption-weight-shift",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caption-weight-shift.html"
+    },
+    {
+      "name": "card-resize",
+      "type": "hyperframes:component",
+      "target": "compositions/components/card-resize.html"
+    },
+    {
+      "name": "caret-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/caret-swap/caret-swap.html"
+    },
+    {
+      "name": "char-slam-explode",
+      "type": "hyperframes:component",
+      "target": "compositions/components/char-slam-explode.html"
+    },
+    {
+      "name": "chart-story",
+      "type": "hyperframes:component",
+      "target": "compositions/components/chart-story.html"
+    },
+    {
+      "name": "chat-message",
+      "type": "hyperframes:component",
+      "target": "compositions/components/chat-message.html"
+    },
+    {
+      "name": "chat-thread",
+      "type": "hyperframes:component",
+      "target": "compositions/components/chat-thread.html"
+    },
+    {
+      "name": "chromatic-aberration-wipe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/chromatic-aberration-wipe.html"
+    },
+    {
+      "name": "code-terminal-run",
+      "type": "hyperframes:component",
+      "target": "compositions/components/code-terminal-run.html"
+    },
+    {
+      "name": "colorama-wipe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/colorama-wipe.html"
+    },
+    {
+      "name": "comparison-split",
+      "type": "hyperframes:component",
+      "target": "compositions/components/comparison-split.html"
+    },
+    {
+      "name": "confetti",
+      "type": "hyperframes:component",
+      "target": "compositions/components/confetti.html"
+    },
+    {
+      "name": "conic-progress-ring",
+      "type": "hyperframes:component",
+      "target": "compositions/components/conic-progress-ring.html"
+    },
+    {
+      "name": "constellation-hub",
+      "type": "hyperframes:component",
+      "target": "compositions/components/constellation-hub.html"
+    },
+    {
+      "name": "count-up",
+      "type": "hyperframes:component",
+      "target": "compositions/components/count-up.html"
+    },
+    {
+      "name": "cta-close",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cta-close.html"
+    },
+    {
+      "name": "cta-lockup",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cta-lockup.html"
+    },
+    {
+      "name": "cursor-annotate",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-annotate.html"
+    },
+    {
+      "name": "cursor-context-menu",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-context-menu.html"
+    },
+    {
+      "name": "cursor-drag-drop",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-drag-drop.html"
+    },
+    {
+      "name": "cursor-glyph-trail",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-glyph-trail.html"
+    },
+    {
+      "name": "cursor-marquee-select",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-marquee-select.html"
+    },
+    {
+      "name": "cursor-text-select",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-text-select.html"
+    },
+    {
+      "name": "cursor-zoom-follow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cursor-zoom-follow.html"
+    },
+    {
+      "name": "curtain-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/curtain-reveal.html"
+    },
+    {
+      "name": "cut-the-curve",
+      "type": "hyperframes:component",
+      "target": "compositions/components/cut-the-curve.html"
+    },
+    {
+      "name": "dart-cursor",
+      "type": "hyperframes:component",
+      "target": "compositions/components/dart-cursor.html"
+    },
+    {
+      "name": "decline-chart",
+      "type": "hyperframes:component",
+      "target": "compositions/components/decline-chart.html"
+    },
+    {
+      "name": "device-frame-stage",
+      "type": "hyperframes:component",
+      "target": "compositions/components/device-frame-stage.html"
+    },
+    {
+      "name": "directional-wipe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/directional-wipe.html"
+    },
+    {
+      "name": "drift-hold",
+      "type": "hyperframes:component",
+      "target": "compositions/components/drift-hold.html"
+    },
+    {
+      "name": "dynamic-grid",
+      "type": "hyperframes:component",
+      "target": "compositions/components/dynamic-grid.html"
+    },
+    {
+      "name": "echo-smear",
+      "type": "hyperframes:component",
+      "target": "compositions/components/echo-smear.html"
+    },
+    {
+      "name": "echo-trail",
+      "type": "hyperframes:component",
+      "target": "compositions/components/echo-trail.html"
+    },
+    {
+      "name": "extended-keyframe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/extended-keyframe.html"
+    },
+    {
+      "name": "facet-morph",
+      "type": "hyperframes:component",
+      "target": "compositions/components/facet-morph.html"
+    },
+    {
+      "name": "fade-through",
+      "type": "hyperframes:component",
+      "target": "compositions/components/fade-through.html"
+    },
+    {
+      "name": "filmed-screen",
+      "type": "hyperframes:component",
+      "target": "compositions/components/filmed-screen.html"
+    },
+    {
+      "name": "focus-blur-resolve",
+      "type": "hyperframes:component",
+      "target": "compositions/components/focus-blur-resolve.html"
+    },
+    {
+      "name": "focus-rack",
+      "type": "hyperframes:component",
+      "target": "compositions/components/focus-rack.html"
+    },
+    {
+      "name": "focus-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/focus-swap.html"
+    },
+    {
+      "name": "gesture-tap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/gesture-tap.html"
+    },
+    {
+      "name": "gloss-sweep",
+      "type": "hyperframes:component",
+      "target": "compositions/components/gloss-sweep.html"
+    },
+    {
+      "name": "grade-split-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/grade-split-reveal.html"
+    },
+    {
+      "name": "grain-field",
+      "type": "hyperframes:component",
+      "target": "compositions/components/grain-field.html"
+    },
+    {
+      "name": "grain-overlay",
+      "type": "hyperframes:component",
+      "target": "compositions/components/grain-overlay.html"
+    },
+    {
+      "name": "grid-card-assemble",
+      "type": "hyperframes:component",
+      "target": "compositions/components/grid-card-assemble.html"
+    },
+    {
+      "name": "grid-pixelate-wipe",
+      "type": "hyperframes:component",
+      "target": "compositions/components/grid-pixelate-wipe.html"
+    },
+    {
+      "name": "halftone-dissolve",
+      "type": "hyperframes:component",
+      "target": "compositions/components/halftone-dissolve.html"
+    },
+    {
+      "name": "headline-slam",
+      "type": "hyperframes:component",
+      "target": "compositions/components/headline-slam.html"
+    },
+    {
+      "name": "hw-arrow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/hw-arrow.html"
+    },
+    {
+      "name": "hw-boil",
+      "type": "hyperframes:component",
+      "target": "compositions/components/hw-boil.html"
+    },
+    {
+      "name": "hw-box-label",
+      "type": "hyperframes:component",
+      "target": "compositions/components/hw-box-label.html"
+    },
+    {
+      "name": "hw-callout-circle",
+      "type": "hyperframes:component",
+      "target": "compositions/components/hw-callout-circle.html"
+    },
+    {
+      "name": "hw-underline",
+      "type": "hyperframes:component",
+      "target": "compositions/components/hw-underline.html"
+    },
+    {
+      "name": "icon-morph-beat",
+      "type": "hyperframes:component",
+      "target": "compositions/components/icon-morph-beat.html"
+    },
+    {
+      "name": "icon-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/icon-swap.html"
+    },
+    {
+      "name": "ink-bleed-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/ink-bleed-reveal.html"
+    },
+    {
+      "name": "inline-highlight",
+      "type": "hyperframes:component",
+      "target": "compositions/components/inline-highlight.html"
+    },
+    {
+      "name": "input-feedback",
+      "type": "hyperframes:component",
+      "target": "compositions/components/input-feedback.html"
+    },
+    {
+      "name": "iris-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/iris-reveal.html"
+    },
+    {
+      "name": "keyframe-scrub-stack",
+      "type": "hyperframes:component",
+      "target": "compositions/components/keyframe-scrub-stack.html"
+    },
+    {
+      "name": "kinetic-center-build",
+      "type": "hyperframes:component",
+      "target": "compositions/components/kinetic-center-build.html"
+    },
+    {
+      "name": "kinetic-type-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/kinetic-type-swap.html"
+    },
+    {
+      "name": "light-sweep-pass",
+      "type": "hyperframes:component",
+      "target": "compositions/components/light-sweep-pass.html"
+    },
+    {
+      "name": "line-by-line-slide",
+      "type": "hyperframes:component",
+      "target": "compositions/components/line-by-line-slide.html"
+    },
+    {
+      "name": "line-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/line-swap.html"
+    },
+    {
+      "name": "locked-nucleus-orbit",
+      "type": "hyperframes:component",
+      "target": "compositions/components/locked-nucleus-orbit.html"
+    },
+    {
+      "name": "logo-brand-close",
+      "type": "hyperframes:component",
+      "target": "compositions/components/logo-brand-close.html"
+    },
+    {
+      "name": "logo-sting",
+      "type": "hyperframes:component",
+      "target": "compositions/components/logo-sting.html"
+    },
+    {
+      "name": "logo-wall",
+      "type": "hyperframes:component",
+      "target": "compositions/components/logo-wall.html"
+    },
+    {
+      "name": "magnetic-cursor",
+      "type": "hyperframes:component",
+      "target": "compositions/components/magnetic-cursor.html"
+    },
+    {
+      "name": "marker-checklist-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/marker-checklist-card.html"
+    },
+    {
+      "name": "marker-highlight",
+      "type": "hyperframes:component",
+      "target": "compositions/components/marker-highlight.html"
+    },
+    {
+      "name": "match-cut",
+      "type": "hyperframes:component",
+      "target": "compositions/components/match-cut.html"
+    },
+    {
+      "name": "matrix-decode",
+      "type": "hyperframes:component",
+      "target": "compositions/components/matrix-decode.html"
+    },
+    {
+      "name": "menu-morph",
+      "type": "hyperframes:component",
+      "target": "compositions/components/menu-morph.html"
+    },
+    {
+      "name": "mesh-gradient-bg",
+      "type": "hyperframes:component",
+      "target": "compositions/components/mesh-gradient-bg.html"
+    },
+    {
+      "name": "micro-transitions",
+      "type": "hyperframes:component",
+      "target": "compositions/components/micro-transitions.html"
+    },
+    {
+      "name": "mk-emphasis-type",
+      "type": "hyperframes:component",
+      "target": "compositions/components/mk-emphasis-type.html"
+    },
+    {
+      "name": "mk-usage-arc",
+      "type": "hyperframes:component",
+      "target": "compositions/components/mk-usage-arc.html"
+    },
+    {
+      "name": "modal-morph",
+      "type": "hyperframes:component",
+      "target": "compositions/components/modal-morph.html"
+    },
+    {
+      "name": "morph-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/morph-swap.html"
+    },
+    {
+      "name": "morph-text",
+      "type": "hyperframes:component",
+      "target": "compositions/components/morph-text.html"
+    },
+    {
+      "name": "motion-blur",
+      "type": "hyperframes:component",
+      "target": "compositions/components/motion-blur.html"
+    },
+    {
+      "name": "multi-device-splay",
+      "type": "hyperframes:component",
+      "target": "compositions/components/multi-device-splay.html"
+    },
+    {
+      "name": "multiplayer-cursors",
+      "type": "hyperframes:component",
+      "target": "compositions/components/multiplayer-cursors.html"
+    },
+    {
+      "name": "native-notification-pop",
+      "type": "hyperframes:component",
+      "target": "compositions/components/native-notification-pop.html"
+    },
+    {
+      "name": "notes-typing",
+      "type": "hyperframes:component",
+      "target": "compositions/components/notes-typing.html"
+    },
+    {
+      "name": "notification-pileup",
+      "type": "hyperframes:component",
+      "target": "compositions/components/notification-pileup.html"
+    },
+    {
+      "name": "notification-stack",
+      "type": "hyperframes:component",
+      "target": "compositions/components/notification-stack.html"
+    },
+    {
+      "name": "number-pop-in",
+      "type": "hyperframes:component",
+      "target": "compositions/components/number-pop-in.html"
+    },
+    {
+      "name": "number-wheel",
+      "type": "hyperframes:component",
+      "target": "compositions/components/number-wheel.html"
+    },
+    {
+      "name": "offset-path-traveler",
+      "type": "hyperframes:component",
+      "target": "compositions/components/offset-path-traveler.html"
+    },
+    {
+      "name": "onboarding-stepper-flow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/onboarding-stepper-flow.html"
+    },
+    {
+      "name": "ordered-dither-pass",
+      "type": "hyperframes:component",
+      "target": "compositions/components/ordered-dither-pass.html"
+    },
+    {
+      "name": "outline-draw",
+      "type": "hyperframes:component",
+      "target": "compositions/components/outline-draw.html"
+    },
+    {
+      "name": "oversized-cursor",
+      "type": "hyperframes:component",
+      "target": "compositions/components/oversized-cursor.html"
+    },
+    {
+      "name": "overwhelm-surround",
+      "type": "hyperframes:component",
+      "target": "compositions/components/overwhelm-surround.html"
+    },
+    {
+      "name": "page-slide",
+      "type": "hyperframes:component",
+      "target": "compositions/components/page-slide.html"
+    },
+    {
+      "name": "pan-stations",
+      "type": "hyperframes:component",
+      "target": "compositions/components/pan-stations.html"
+    },
+    {
+      "name": "panel-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/panel-reveal.html"
+    },
+    {
+      "name": "paper-collage-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/paper-collage-reveal.html"
+    },
+    {
+      "name": "parallax-device-dive",
+      "type": "hyperframes:component",
+      "target": "compositions/components/parallax-device-dive.html"
+    },
+    {
+      "name": "parallax-unzoom",
+      "type": "hyperframes:component",
+      "target": "compositions/components/parallax-unzoom.html"
+    },
+    {
+      "name": "parallax-zoom",
+      "type": "hyperframes:component",
+      "target": "compositions/components/parallax-zoom.html"
+    },
+    {
+      "name": "particle-image-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/particle-image-reveal.html"
+    },
+    {
+      "name": "particle-text-dissolve",
+      "type": "hyperframes:component",
+      "target": "compositions/components/particle-text-dissolve.html"
+    },
+    {
+      "name": "pendulum-swing",
+      "type": "hyperframes:component",
+      "target": "compositions/components/pendulum-swing.html"
+    },
+    {
+      "name": "per-word-crossfade",
+      "type": "hyperframes:component",
+      "target": "compositions/components/per-word-crossfade.html"
+    },
+    {
+      "name": "per-word-rise",
+      "type": "hyperframes:component",
+      "target": "compositions/components/per-word-rise.html"
+    },
+    {
+      "name": "perspective-marquee",
+      "type": "hyperframes:component",
+      "target": "compositions/components/perspective-marquee.html"
+    },
+    {
+      "name": "physical-exit",
+      "type": "hyperframes:component",
+      "target": "compositions/components/physical-exit.html"
+    },
+    {
+      "name": "press-ripple",
+      "type": "hyperframes:component",
+      "target": "compositions/components/press-ripple.html"
+    },
+    {
+      "name": "pull-back-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/pull-back-reveal.html"
+    },
+    {
+      "name": "pull-to-refresh",
+      "type": "hyperframes:component",
+      "target": "compositions/components/pull-to-refresh.html"
+    },
+    {
+      "name": "push-in",
+      "type": "hyperframes:component",
+      "target": "compositions/components/push-in.html"
+    },
+    {
+      "name": "radial-surround",
+      "type": "hyperframes:component",
+      "target": "compositions/components/radial-surround.html"
+    },
+    {
+      "name": "rgb-glitch-text",
+      "type": "hyperframes:component",
+      "target": "compositions/components/rgb-glitch-text.html"
+    },
+    {
+      "name": "rubber-band-bumper",
+      "type": "hyperframes:component",
+      "target": "compositions/components/rubber-band-bumper.html"
+    },
+    {
+      "name": "scan-band",
+      "type": "hyperframes:component",
+      "target": "compositions/components/scan-band.html"
+    },
+    {
+      "name": "scramble-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/scramble-reveal.html"
+    },
+    {
+      "name": "screen-flow-carousel",
+      "type": "hyperframes:component",
+      "target": "compositions/components/screen-flow-carousel.html"
+    },
+    {
+      "name": "scroll-camera-story",
+      "type": "hyperframes:component",
+      "target": "compositions/components/scroll-camera-story.html"
+    },
+    {
+      "name": "scroll-feed",
+      "type": "hyperframes:component",
+      "target": "compositions/components/scroll-feed.html"
+    },
+    {
+      "name": "segmentation-flood",
+      "type": "hyperframes:component",
+      "target": "compositions/components/segmentation-flood.html"
+    },
+    {
+      "name": "separator",
+      "type": "hyperframes:component",
+      "target": "compositions/components/separator.html"
+    },
+    {
+      "name": "settings-toggle-flow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/settings-toggle-flow.html"
+    },
+    {
+      "name": "shared-axis-y",
+      "type": "hyperframes:component",
+      "target": "compositions/components/shared-axis-y.html"
+    },
+    {
+      "name": "shared-axis-z",
+      "type": "hyperframes:component",
+      "target": "compositions/components/shared-axis-z.html"
+    },
+    {
+      "name": "sheet-spring-up",
+      "type": "hyperframes:component",
+      "target": "compositions/components/sheet-spring-up.html"
+    },
+    {
+      "name": "shimmer-sweep",
+      "type": "hyperframes:component",
+      "target": "compositions/components/shimmer-sweep.html"
+    },
+    {
+      "name": "shutter-slam",
+      "type": "hyperframes:component",
+      "target": "compositions/components/shutter-slam.html"
+    },
+    {
+      "name": "signup-flow",
+      "type": "hyperframes:component",
+      "target": "compositions/components/signup-flow.html"
+    },
+    {
+      "name": "skeleton-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/skeleton-reveal.html"
+    },
+    {
+      "name": "slit-scan-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/slit-scan-reveal.html"
+    },
+    {
+      "name": "slot-machine-roll",
+      "type": "hyperframes:component",
+      "target": "compositions/components/slot-machine-roll.html"
+    },
+    {
+      "name": "social-proof-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/social-proof-card.html"
+    },
+    {
+      "name": "soft-blob-touch",
+      "type": "hyperframes:component",
+      "target": "compositions/components/soft-blob-touch.html"
+    },
+    {
+      "name": "soft-blur-in",
+      "type": "hyperframes:component",
+      "target": "compositions/components/soft-blur-in.html"
+    },
+    {
+      "name": "split-tilt-cards",
+      "type": "hyperframes:component",
+      "target": "compositions/components/split-tilt-cards.html"
+    },
+    {
+      "name": "spotlight-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/spotlight-card.html"
+    },
+    {
+      "name": "spring-pop",
+      "type": "hyperframes:component",
+      "target": "compositions/components/spring-pop.html"
+    },
+    {
+      "name": "spring-stack-shuffle",
+      "type": "hyperframes:component",
+      "target": "compositions/components/spring-stack-shuffle.html"
+    },
+    {
+      "name": "stagger-cascade",
+      "type": "hyperframes:component",
+      "target": "compositions/components/stagger-cascade.html"
+    },
+    {
+      "name": "stagger-lattice",
+      "type": "hyperframes:component",
+      "target": "compositions/components/stagger-lattice.html"
+    },
+    {
+      "name": "staggered-fade-up",
+      "type": "hyperframes:component",
+      "target": "compositions/components/staggered-fade-up.html"
+    },
+    {
+      "name": "star-rating-fill",
+      "type": "hyperframes:component",
+      "target": "compositions/components/star-rating-fill.html"
+    },
+    {
+      "name": "state-chip-rail",
+      "type": "hyperframes:component",
+      "target": "compositions/components/state-chip-rail.html"
+    },
+    {
+      "name": "sticky-mock-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/sticky-mock-swap.html"
+    },
+    {
+      "name": "stitched-text-draw",
+      "type": "hyperframes:component",
+      "target": "compositions/components/stitched-text-draw.html"
+    },
+    {
+      "name": "stop-motion-cadence",
+      "type": "hyperframes:component",
+      "target": "compositions/components/stop-motion-cadence.html"
+    },
+    {
+      "name": "store-badge-lockup",
+      "type": "hyperframes:component",
+      "target": "compositions/components/store-badge-lockup.html"
+    },
+    {
+      "name": "streaming-text",
+      "type": "hyperframes:component",
+      "target": "compositions/components/streaming-text.html"
+    },
+    {
+      "name": "strikethrough-replace",
+      "type": "hyperframes:component",
+      "target": "compositions/components/strikethrough-replace.html"
+    },
+    {
+      "name": "success-check",
+      "type": "hyperframes:component",
+      "target": "compositions/components/success-check.html"
+    },
+    {
+      "name": "svg-line-draw-loader",
+      "type": "hyperframes:component",
+      "target": "compositions/components/svg-line-draw-loader.html"
+    },
+    {
+      "name": "svg-mask-reveal",
+      "type": "hyperframes:component",
+      "target": "compositions/components/svg-mask-reveal.html"
+    },
+    {
+      "name": "svg-stroke-trace",
+      "type": "hyperframes:component",
+      "target": "compositions/components/svg-stroke-trace.html"
+    },
+    {
+      "name": "swipe-rail",
+      "type": "hyperframes:component",
+      "target": "compositions/components/swipe-rail.html"
+    },
+    {
+      "name": "tabs-slide-indicator",
+      "type": "hyperframes:component",
+      "target": "compositions/components/tabs-slide-indicator.html"
+    },
+    {
+      "name": "telemetry-hud",
+      "type": "hyperframes:component",
+      "target": "compositions/components/telemetry-hud.html"
+    },
+    {
+      "name": "terminal-simulator",
+      "type": "hyperframes:component",
+      "target": "compositions/components/terminal-simulator.html"
+    },
+    {
+      "name": "testimonial-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/testimonial-card.html"
+    },
+    {
+      "name": "testimonial-proof-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/testimonial-proof-card.html"
+    },
+    {
+      "name": "text-match-cut",
+      "type": "hyperframes:component",
+      "target": "compositions/components/text-match-cut.html"
+    },
+    {
+      "name": "text-shimmer",
+      "type": "hyperframes:component",
+      "target": "compositions/components/text-shimmer.html"
+    },
+    {
+      "name": "text-stagger",
+      "type": "hyperframes:component",
+      "target": "compositions/components/text-stagger.html"
+    },
+    {
+      "name": "text-state-swap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/text-state-swap.html"
+    },
+    {
+      "name": "texture-mask-text",
+      "type": "hyperframes:component",
+      "target": "compositions/components/texture-mask-text/texture-mask-text.html"
+    },
+    {
+      "name": "three-orbiting-cards",
+      "type": "hyperframes:component",
+      "target": "compositions/components/three-orbiting-cards.html"
+    },
+    {
+      "name": "ticker-takeover",
+      "type": "hyperframes:component",
+      "target": "compositions/components/ticker-takeover.html"
+    },
+    {
+      "name": "tilt-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/tilt-card.html"
+    },
+    {
+      "name": "titlecard-calm",
+      "type": "hyperframes:component",
+      "target": "compositions/components/titlecard-calm.html"
+    },
+    {
+      "name": "titlecard-lockup",
+      "type": "hyperframes:component",
+      "target": "compositions/components/titlecard-lockup.html"
+    },
+    {
+      "name": "toggle-flip",
+      "type": "hyperframes:component",
+      "target": "compositions/components/toggle-flip.html"
+    },
+    {
+      "name": "top-down-letters",
+      "type": "hyperframes:component",
+      "target": "compositions/components/top-down-letters.html"
+    },
+    {
+      "name": "torn-paper-rip",
+      "type": "hyperframes:component",
+      "target": "compositions/components/torn-paper-rip.html"
+    },
+    {
+      "name": "touch-indicator",
+      "type": "hyperframes:component",
+      "target": "compositions/components/touch-indicator.html"
+    },
+    {
+      "name": "tracing-beam",
+      "type": "hyperframes:component",
+      "target": "compositions/components/tracing-beam.html"
+    },
+    {
+      "name": "tracking-in",
+      "type": "hyperframes:component",
+      "target": "compositions/components/tracking-in.html"
+    },
+    {
+      "name": "trust-strip",
+      "type": "hyperframes:component",
+      "target": "compositions/components/trust-strip.html"
+    },
+    {
+      "name": "type-match-cut",
+      "type": "hyperframes:component",
+      "target": "compositions/components/type-match-cut.html"
+    },
+    {
+      "name": "typed-prompt",
+      "type": "hyperframes:component",
+      "target": "compositions/components/typed-prompt.html"
+    },
+    {
+      "name": "typewriter",
+      "type": "hyperframes:component",
+      "target": "compositions/components/typewriter.html"
+    },
+    {
+      "name": "typing-indicator",
+      "type": "hyperframes:component",
+      "target": "compositions/components/typing-indicator.html"
+    },
+    {
+      "name": "ui-focus-zoom",
+      "type": "hyperframes:component",
+      "target": "compositions/components/ui-focus-zoom.html"
+    },
+    {
+      "name": "variable-axis-type",
+      "type": "hyperframes:component",
+      "target": "compositions/components/variable-axis-type.html"
+    },
+    {
+      "name": "variable-font-flex",
+      "type": "hyperframes:component",
+      "target": "compositions/components/variable-font-flex.html"
+    },
+    {
+      "name": "vector-editor-rig",
+      "type": "hyperframes:component",
+      "target": "compositions/components/vector-editor-rig.html"
+    },
+    {
+      "name": "velocity-throw-snap",
+      "type": "hyperframes:component",
+      "target": "compositions/components/velocity-throw-snap.html"
+    },
+    {
+      "name": "vignette",
+      "type": "hyperframes:component",
+      "target": "compositions/components/vignette.html"
+    },
+    {
+      "name": "vox-annotate",
+      "type": "hyperframes:component",
+      "target": "compositions/components/vox-annotate.html"
+    },
+    {
+      "name": "whip-pan-cut",
+      "type": "hyperframes:component",
+      "target": "compositions/components/whip-pan-cut.html"
+    },
+    {
+      "name": "whiteboard-ink",
+      "type": "hyperframes:component",
+      "target": "compositions/components/whiteboard-ink.html"
+    },
+    {
+      "name": "wordmark-tiles",
+      "type": "hyperframes:component",
+      "target": "compositions/components/wordmark-tiles.html"
+    },
+    {
+      "name": "x-follow-card",
+      "type": "hyperframes:component",
+      "target": "compositions/components/x-follow-card.html"
+    },
+    {
+      "name": "yt-camera-move",
+      "type": "hyperframes:component",
+      "target": "compositions/components/yt-camera-move.html"
+    },
+    {
+      "name": "yt-circle-pointer",
+      "type": "hyperframes:component",
+      "target": "compositions/components/yt-circle-pointer.html"
+    },
+    {
+      "name": "yt-feather-highlight",
+      "type": "hyperframes:component",
+      "target": "compositions/components/yt-feather-highlight.html"
+    },
+    {
+      "name": "yt-screen-warp",
+      "type": "hyperframes:component",
+      "target": "compositions/components/yt-screen-warp.html"
+    },
+    {
+      "name": "zoom-through-transition",
+      "type": "hyperframes:component",
+      "target": "compositions/components/zoom-through-transition.html"
+    }
+  ]
+}
