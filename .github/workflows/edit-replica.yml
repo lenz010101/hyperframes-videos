@@ -46,13 +46,15 @@ jobs:
         run: bash .github/scripts/contact_sheet.sh ./out/wa_edit2.mp4
       - name: Commit sheet
         run: |
-          git pull --rebase origin main
           git config user.name "edit-replica-bot"
           git config user.email "actions@localhost"
+          git fetch origin main || true
+          git rebase origin/main || echo "rebase skipped"
           git add sheets assets/sfx
           git commit -m "Edit replica v2: captions 3D + SFX + transitions for ${{ github.event.inputs.base }}" || echo "nothing to commit"
-          git push
+          git push origin HEAD:main || echo "push skipped - artifact carries the sheet"
       - name: Upload render artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: wa-edit2-render
