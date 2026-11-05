@@ -147,8 +147,23 @@ def gen_clips_html(cuts):
     return "\n".join(out)
 
 def gen_words_html(segs_words):
-    return "\n".join(f'      <div class="word" id="w{i}">{esc(w)}</div>'
-                     for i, (w, _) in enumerate([(w, p) for w, p in segs_words]) if w)
+    out = []
+    for i, (w, _) in enumerate([(w, p) for w, p in segs_words]):
+        if not w:
+            continue
+        n = len(w)
+        if n <= 6:
+            fs = "clamp(44px,11.5vw,118px)"
+        elif n <= 9:
+            fs = "clamp(38px,9.5vw,100px)"
+        elif n <= 12:
+            fs = "clamp(32px,8vw,84px)"
+        elif n <= 15:
+            fs = "clamp(28px,6.6vw,70px)"
+        else:
+            fs = "clamp(24px,5.4vw,58px)"
+        out.append(f'      <div class="word" id="w{i}" style="font-size:{fs}">{esc(w)}</div>')
+    return "\n".join(out)
 
 def gen_caps_html(segs_words, cuts):
     out = []
