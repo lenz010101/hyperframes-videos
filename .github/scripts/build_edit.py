@@ -7,7 +7,7 @@ GENERATES a static contract-compliant wa-edit.html (all timed elements written
 in the markup, tweens literal, no runtime fetch).
 Writes back into scenes.json: overlay_words, captions_whatsapp, dur_whatsapp.
 """
-import json, os, re, subprocess, sys, tempfile
+import json, os, re, subprocess, sys, tempfile, wave
 
 def run(cmd):
     return subprocess.run(cmd, check=True, capture_output=True, text=True)
@@ -19,20 +19,24 @@ def probe_dur(path):
 
 def ocr_word(video, t, keep):
     try:
-        run(["ffmpeg", "-y", "-ss", f"{t+0.15:.3f}", "-i", video, "-frames:v", "1", keep])
+        run(["ffmpeg", "-y", "-ss", f"{t+0.15:.3f}", "-i", video,
+             "-vf", "crop=iw*0.92:ih*0.5:(iw-iw*0.92)/2:ih*0.28,scale=iw*1.5:ih*1.5:flags=lanczos",
+             "-frames:v", "1", keep])
         txt = run(["tesseract", keep, "stdout", "-l", "spa", "--psm", "6"]).stdout
     except (subprocess.CalledProcessError, EnvironmentError) as e:
         print(f"  ocr fail @ {t:.2f}: {e.__class__.__name__}")
         return None
-    clean = []
+    cands = []
     for line in txt.splitlines():
         line = line.strip()
-        if "@" in line:
+        if "@" in line or "?" in line:
             continue
-        line = re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ¿?¡!0-9' ]+", " ", line).strip()
-        if len(line) >= 2:
-            clean.append(line)
-    return clean[-1] if clean else None
+        line = re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ¡!0-9']+", " ", line).strip()
+        letters = re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ]", "", line)
+        if len(letters) >= 4 and len(line) <= 18:
+            # kinetic strips are short; prefer all-caps single words
+            cands.append(((1 if letters.isupper() else 0, -len(line)), line))
+    return max(cands, key=lambda x: x[0])[1] if cands else None
 
 def split_long(s, e, txt):
     if len(txt) <= 84:
@@ -45,13 +49,21 @@ def split_long(s, e, txt):
 
 def transcribe(path):
     try:
+        import numpy as np
         from faster_whisper import WhisperModel
     except Exception as e:
         print("faster-whisper unavailable:", e.__class__.__name__)
         return []
     try:
+        # decode the audio to raw PCM ourselves; faster-whisper's internal
+        # av.decode path breaks on this host (metadata_errors kwarg)
+        wav = os.path.join(tempfile.gettempdir(), "base_audio.wav")
+        run(["ffmpeg", "-y", "-i", path, "-ac", "1", "-ar", "16000", "-v", "error", wav])
+        with wave.open(wav, "rb") as w:
+            pcm = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16)
+        audio = pcm.astype(np.float32) / 32768.0
         model = WhisperModel("tiny")
-        segments, _ = model.transcribe(path, vad_filter=True)
+        segments, _ = model.transcribe(audio, sampling_rate=16000, language="es", vad_filter=True)
         caps = []
         for seg in segments:
             txt = (seg.text or "").strip()
@@ -62,7 +74,9 @@ def transcribe(path):
                 caps.append([round(a, 2), round(b, 2), t])
         return caps
     except Exception as e:
+        import traceback
         print("whisper failed:", e)
+        traceback.print_exc()
         return []
 
 def esc(x):
@@ -124,7 +138,7 @@ COMPO_TEMPLATE = """<!DOCTYPE html>
 <title>WhatsApp Edit Match Refe - Motion Graphics</title>
 <style>
 html,body{margin:0;height:100%;background:#000;overflow:hidden}
-#stage{position:absolute;inset:0;display:grid;place-items:center;background:#000}
+#main{position:absolute;inset:0;background:#000;overflow:hidden}
 #vwrap{position:absolute;inset:0;transform-origin:50% 50%;z-index:1}
 video{width:100%;height:100%;object-fit:cover;transform:translate3d(0,0,0);filter:contrast(1.08) saturate(1.15) brightness(1.02)}
 .words{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:3}
@@ -137,15 +151,15 @@ text-shadow:1px 1px 0 #8b3dff,2px 2px 0 #8b3dff,3px 3px 0 #6d24e0,4px 4px 0 #561
 </style>
 </head>
 <body>
-<div id="stage" data-duration="§§DUR_WA§§" data-composition-id="main">
+<div id="main" data-composition-id="main" data-start="0" data-duration="§§DUR_WA§§" data-width="1080" data-height="1920">
   <div id="vwrap">
-    <video id="baseVideo" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
+    <video id="baseVideo" class="clip" data-start="0" data-duration="§§DUR_WA§§" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
   </div>
   <div class="flash" id="flash"></div>
   <div class="words" id="words">
 §§WORDS_HTML§§
   </div>
-  <div class="caps" id="caps" data-track-kind="captions">
+  <div class="caps" id="caps">
 §§CAPS_HTML§§
   </div>
 §§SFX_HTML§§
@@ -155,7 +169,7 @@ text-shadow:1px 1px 0 #8b3dff,2px 2px 0 #8b3dff,3px 3px 0 #6d24e0,4px 4px 0 #561
 <script>
 const tl=gsap.timeline({paused:true});
 tl.to('#bar',{scaleX:1,duration:§§DUR_WA§§,ease:'none'},0);
-tl.fromTo('#baseVideo',{opacity:1},{opacity:1,duration:0.01},0);
+// baseVideo is a timed class="clip" element: the runtime per-frame seeks it
 §§WORDS_TWEENS§§
 §§CAPS_TWEENS§§
 window.__timelines={main:tl};
