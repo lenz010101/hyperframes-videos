@@ -31,7 +31,7 @@ def ocr_word(video, t, keep):
         line = line.strip()
         if "@" in line or "?" in line:
             continue
-        line = re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ¡!0-9']+", " ", line).strip()
+        line = re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ¡!]+", " ", line).strip()
         letters = re.sub(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ]", "", line)
         if len(letters) >= 4 and len(line) <= 18:
             # kinetic strips are short; prefer all-caps single words
@@ -63,7 +63,7 @@ def transcribe(path):
             pcm = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16)
         audio = pcm.astype(np.float32) / 32768.0
         model = WhisperModel("tiny")
-        segments, _ = model.transcribe(audio, sampling_rate=16000, language="es", vad_filter=True)
+        segments, _ = model.transcribe(audio, language="es", vad_filter=True)
         caps = []
         for seg in segments:
             txt = (seg.text or "").strip()
@@ -111,8 +111,12 @@ def gen_words(overlay, dur_wa, dur_refe):
         tw = t * dur_wa / dur_refe
         if tw >= dur_wa - 0.6:
             continue
+        nxt = dur_wa
+        if i + 1 < len(overlay):
+            nxt = overlay[i + 1][0] * dur_wa / dur_refe
+        show = min(1.2, max(0.4, nxt - tw - 0.05))
         lines.append(f"tl.fromTo('#w{i}',{{opacity:0,y:34,scale:0.92}},{{opacity:1,y:0,scale:1,duration:0.25,ease:'power4.out'}},{tw:.3f});")
-        lines.append(f"tl.to('#w{i}',{{opacity:0,y:-22,scale:0.95,duration:0.25,ease:'power4.in'}},{tw+1.2:.3f});")
+        lines.append(f"tl.to('#w{i}',{{opacity:0,y:-22,scale:0.95,duration:0.25,ease:'power4.in'}},{tw+show:.3f});")
         lines.append(f"tl.fromTo('#vwrap',{{scale:1}},{{scale:1.12,duration:0.12,ease:'power2.out'}},{tw:.3f});")
         lines.append(f"tl.to('#vwrap',{{scale:1,duration:0.5,ease:'power1.inOut'}},{tw+0.3:.3f});")
         if i % 4 == 0:
@@ -142,7 +146,7 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 #vwrap{position:absolute;inset:0;transform-origin:50% 50%;z-index:1}
 video{width:100%;height:100%;object-fit:cover;transform:translate3d(0,0,0);filter:contrast(1.08) saturate(1.15) brightness(1.02)}
 .words{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:3}
-.word{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(42px,12vw,118px);color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.6),0 0 34px rgba(0,0,0,.85);opacity:0;text-align:center;max-width:88%}
+.word{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(42px,12vw,118px);color:#fff;text-transform:uppercase;letter-spacing:1px;text-shadow:0 3px 0 rgba(0,0,0,.6),0 0 34px rgba(0,0,0,.85);opacity:0;text-align:center;max-width:88%}
 .caps{position:absolute;left:0;right:0;bottom:9%;display:grid;place-items:center;pointer-events:none;z-index:4}
 .cap{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(24px,5.6vw,62px);color:#fff;opacity:0;text-align:center;max-width:86%;letter-spacing:.4px;line-height:1.18;
 text-shadow:1px 1px 0 #8b3dff,2px 2px 0 #8b3dff,3px 3px 0 #6d24e0,4px 4px 0 #5618bd,5px 5px 0 #3f0d99,6px 6px 0 #2c0876,7px 7px 14px rgba(0,0,0,.65),0 0 30px rgba(150,90,255,.4)}
