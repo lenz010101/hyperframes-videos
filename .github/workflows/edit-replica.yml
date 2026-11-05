@@ -27,23 +27,32 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Install faster-whisper
+        run: pip install -q faster-whisper || pip3 install -q faster-whisper || pipx install faster-whisper || true
+      - name: Synthesize SFX
+        run: |
+          mkdir -p assets/sfx
+          ffmpeg -y -f lavfi -i "anoisesrc=c=pink:d=0.7" -af "highpass=f=250,lowpass=f=2400,afade=t=in:d=0.18,afade=t=out:st=0.3:d=0.4" assets/sfx/whoosh.wav
+          ffmpeg -y -f lavfi -i "sine=frequency=920:duration=0.08" -af "afade=t=out:st=0.01:d=0.07" assets/sfx/tick.wav
+          ffmpeg -y -f lavfi -i "sine=frequency=1175:duration=0.32" -af "afade=t=in:d=0.03,afade=t=out:st=0.16:d=0.16" assets/sfx/ding.wav
+          ls -la assets/sfx
       - name: Build overlay schedule
         run: python3 .github/scripts/build_edit.py "${{ github.event.inputs.base }}" refe.mp4 scenes.json
       - name: Render the edit
-        run: npx hyperframes render wa-edit.html --output ./out/wa_edit.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
+        run: npx hyperframes render wa-edit.html --output ./out/wa_edit2.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
       - name: Contact sheet of the edit
-        run: bash .github/scripts/contact_sheet.sh ./out/wa_edit.mp4
+        run: bash .github/scripts/contact_sheet.sh ./out/wa_edit2.mp4
       - name: Commit sheet
         run: |
           git pull --rebase origin main
           git config user.name "edit-replica-bot"
           git config user.email "actions@localhost"
-          git add sheets
-          git commit -m "Add edit replica sheet for ${{ github.event.inputs.base }}" || echo "nothing to commit"
+          git add sheets assets/sfx
+          git commit -m "Edit replica v2: captions 3D + SFX + transitions for ${{ github.event.inputs.base }}" || echo "nothing to commit"
           git push
       - name: Upload render artifact
         uses: actions/upload-artifact@v4
         with:
-          name: wa-edit-render
-          path: out/wa_edit.mp4
+          name: wa-edit2-render
+          path: out/wa_edit2.mp4
           retention-days: 7
