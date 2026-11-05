@@ -1,0 +1,25 @@
+name: Contact Sheet
+on:
+  workflow_dispatch:
+    inputs:
+      video:
+        description: "Video file in the repo to build the sheet from"
+        required: true
+        default: "whatsapp.mp4"
+permissions:
+  contents: write
+jobs:
+  sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Build contact sheet
+        run: bash .github/scripts/contact_sheet.sh "${{ github.event.inputs.video }}"
+      - name: Commit sheet
+        run: |
+          git config user.name "contact-sheet-bot"
+          git config user.email "actions@localhost"
+          git add sheets
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Add contact sheet for ${{ github.event.inputs.video }}"; fi
+          git push
