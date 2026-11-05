@@ -9,7 +9,7 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 #vwrap{position:absolute;inset:0;transform-origin:50% 50%;z-index:1}
 video{width:100%;height:100%;object-fit:cover;transform:translate3d(0,0,0);filter:contrast(1.08) saturate(1.15) brightness(1.02)}
 .words{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:3}
-.word{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(36px,9vw,104px);color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.55),0 0 28px rgba(0,0,0,.8);opacity:0;text-align:center;max-width:88%}
+.word{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(42px,12vw,118px);color:#fff;text-shadow:0 3px 0 rgba(0,0,0,.6),0 0 34px rgba(0,0,0,.85);opacity:0;text-align:center;max-width:88%}
 .caps{position:absolute;left:0;right:0;bottom:9%;display:grid;place-items:center;pointer-events:none;z-index:4}
 .cap{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(24px,5.6vw,62px);color:#fff;opacity:0;text-align:center;max-width:86%;letter-spacing:.4px;line-height:1.18;
 text-shadow:1px 1px 0 #8b3dff,2px 2px 0 #8b3dff,3px 3px 0 #6d24e0,4px 4px 0 #5618bd,5px 5px 0 #3f0d99,6px 6px 0 #2c0876,7px 7px 14px rgba(0,0,0,.65),0 0 30px rgba(150,90,255,.4)}
@@ -18,7 +18,7 @@ text-shadow:1px 1px 0 #8b3dff,2px 2px 0 #8b3dff,3px 3px 0 #6d24e0,4px 4px 0 #561
 </style>
 </head>
 <body>
-<div id="stage" data-duration="50.4">
+<div id="stage" data-duration="50.4" data-composition-id="main">
   <div id="vwrap">
     <video id="baseVideo" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
   </div>
@@ -71,9 +71,8 @@ fetch('scenes.json').then(r=>r.json()).then(data=>{
     o.className='clip'; o.id='sfwho'+i; o.src='assets/sfx/whoosh.wav'; o.loop=false;
     o.setAttribute('data-start',t.toFixed(3)); o.setAttribute('data-duration','0.65'); o.setAttribute('data-volume','0.5');
     document.getElementById('stage').appendChild(o);
-    tl.fromTo('#vwrap',{scale:1.1},{scale:1.035,duration:0.14,ease:'power2.out'},t)
-    tl.fromTo('#vwrap',{scale:1.03},{scale:1.035,duration:0.1,ease:'power1.out'},t+0.16)
-      .to('#vwrap',{scale:1,duration:0.46,ease:'power1.inOut'},t+0.56);
+    tl.fromTo('#vwrap',{scale:1},{scale:1.12,duration:0.12,ease:'power2.out'},t)
+      .to('#vwrap',{scale:1,duration:0.5,ease:'power1.inOut'},t+0.3);
     if(i%8===0){
       const d2=document.createElement('audio');
       d2.className='clip'; d2.id='sfding'+i; d2.src='assets/sfx/ding.wav'; d2.loop=false;
