@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: "22"
       - name: Install faster-whisper
-        run: python3 -m pip install -q --break-system-packages -U faster-whisper huggingface_hub || pip install -q -U faster-whisper huggingface_hub || true
+        run: python3 -m pip install -q --break-system-packages -U faster-whisper huggingface_hub av || pip install -q -U faster-whisper huggingface_hub av || true
       - name: Synthesize SFX
         run: |
           mkdir -p assets/sfx
@@ -48,6 +48,7 @@ jobs:
         run: |
           git config user.name "edit-replica-bot"
           git config user.email "actions@localhost"
+          git checkout -- index.html
           git fetch origin main || true
           git rebase origin/main || echo "rebase skipped"
           git add sheets assets/sfx
