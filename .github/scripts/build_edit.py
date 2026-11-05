@@ -77,6 +77,10 @@ for t in sc["scene_times_refe"]:
     if t > dur_refe - 1.2:
         continue
     word = ocr_word(ref, t, keep)
+    if not word:
+        continue
+    if re.fullmatch(r"[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ¿?¡!]*", word):
+        continue
     if word and (not overlay or overlay[-1][1] != word):
         overlay.append([t, word])
         print(f"beat {t:6.2f}s -> {word!r}")

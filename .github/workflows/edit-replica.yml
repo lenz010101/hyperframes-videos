@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: "22"
       - name: Install faster-whisper
-        run: python3 -m pip install -q --break-system-packages faster-whisper || pip install -q faster-whisper || true
+        run: python3 -m pip install -q --break-system-packages -U faster-whisper huggingface_hub || pip install -q -U faster-whisper huggingface_hub || true
       - name: Synthesize SFX
         run: |
           mkdir -p assets/sfx
@@ -39,7 +39,9 @@ jobs:
       - name: Build overlay schedule
         run: python3 .github/scripts/build_edit.py "${{ github.event.inputs.base }}" refe.mp4 scenes.json
       - name: Render the edit
-        run: npx hyperframes render wa-edit.html --output ./out/wa_edit2.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
+        run: |
+          cp wa-edit.html index.html
+          npx hyperframes render . --output ./out/wa_edit2.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
       - name: Contact sheet of the edit
         run: bash .github/scripts/contact_sheet.sh ./out/wa_edit2.mp4
       - name: Commit sheet
