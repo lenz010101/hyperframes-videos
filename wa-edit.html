@@ -2,143 +2,106 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>WhatsApp Edit - Speech Jump Cuts</title>
+<title>WhatsApp Edit - Reel Montage</title>
 <style>
 html,body{margin:0;height:100%;background:#000;overflow:hidden}
 #main{position:absolute;inset:0;background:#000;overflow:hidden}
-#vwrap{position:absolute;inset:0;transform-origin:50% 40%;z-index:1}
-#vwrap video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.06) saturate(1.12)}
-.words{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:3}
-.word{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(40px,11vw,110px);color:#fff;text-transform:uppercase;letter-spacing:1px;text-shadow:0 3px 0 rgba(0,0,0,.65),0 0 30px rgba(0,0,0,.9);opacity:0;text-align:center;max-width:90%;grid-area:1/1}
-.caps{position:absolute;left:0;right:0;bottom:11%;display:grid;place-items:center;pointer-events:none;z-index:4}
-.cap{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(22px,5.2vw,58px);color:#fff;opacity:0;text-align:center;max-width:86%;letter-spacing:.4px;line-height:1.18;
-text-shadow:1px 1px 0 #8b3dff,2px 2px 0 #8b3dff,3px 3px 0 #6d24e0,4px 4px 0 #5618bd,5px 5px 0 #3f0d99,6px 6px 0 #2c0876,7px 7px 14px rgba(0,0,0,.65),0 0 30px rgba(150,90,255,.4);grid-area:1/1}
+#vwrap{position:absolute;inset:0;transform-origin:50% 40%;z-index:1;overflow:hidden}
+#vwrap video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.lseg{position:absolute;inset:0;transform-origin:50% 30%}
 .flash{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:#fff}
+.caps{position:absolute;left:0;right:0;top:52%;display:grid;place-items:center;pointer-events:none;z-index:4}
+.cap{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(20px,4.4vw,50px);color:#fff;opacity:0;text-align:center;max-width:82%;letter-spacing:.3px;line-height:1.15;
+-webkit-text-stroke:1.4px #000;text-shadow:0 3px 0 rgba(0,0,0,.55),0 6px 16px rgba(0,0,0,.5)}
+.cap .kb{display:block;font-size:1.95em;letter-spacing:.5px;line-height:1.05;margin-bottom:2px}
+.plate{position:absolute;inset:0;z-index:6;display:grid;place-items:center;pointer-events:none;opacity:0;
+font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(40px,12vw,120px);color:#fff;text-transform:uppercase;text-align:center;max-width:90%;letter-spacing:2px;
+text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
+
+.p0{background:linear-gradient(115deg,#ff3b5c 0%,#b23bff 55%,#3bd2ff 100%)}
+.p1{background:radial-gradient(circle at 32% 28%,#2532a8,#0a0f3d 72%)}
+.p2{background:linear-gradient(160deg,#101010,#3d0a0a 65%,#12010c)}
+
 .bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#ff3b5c,#ff9a3c);transform:scaleX(0);transform-origin:left;z-index:5}
 </style>
 </head>
 <body>
 <div id="main" data-composition-id="main" data-start="0" data-duration="50.367" data-width="1080" data-height="1920">
   <div id="vwrap">
-    <video id="seg0" class="clip" data-start="0.000" data-duration="1.560" data-media-start="0.000" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg1" class="clip" data-start="1.580" data-duration="2.500" data-media-start="1.580" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg2" class="clip" data-start="4.100" data-duration="1.460" data-media-start="4.100" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg3" class="clip" data-start="5.580" data-duration="1.660" data-media-start="5.580" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg4" class="clip" data-start="7.260" data-duration="2.140" data-media-start="7.260" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg5" class="clip" data-start="9.420" data-duration="1.820" data-media-start="9.420" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg6" class="clip" data-start="11.260" data-duration="2.180" data-media-start="11.260" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg7" class="clip" data-start="13.460" data-duration="1.320" data-media-start="13.460" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg8" class="clip" data-start="14.800" data-duration="1.920" data-media-start="14.800" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg9" class="clip" data-start="16.740" data-duration="2.680" data-media-start="16.740" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg10" class="clip" data-start="19.440" data-duration="1.740" data-media-start="19.440" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg11" class="clip" data-start="21.200" data-duration="2.000" data-media-start="21.200" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg12" class="clip" data-start="23.220" data-duration="1.240" data-media-start="23.220" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg13" class="clip" data-start="24.480" data-duration="1.940" data-media-start="24.480" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg14" class="clip" data-start="26.440" data-duration="2.220" data-media-start="26.440" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg15" class="clip" data-start="28.680" data-duration="1.940" data-media-start="28.680" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg16" class="clip" data-start="30.640" data-duration="1.880" data-media-start="30.640" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg17" class="clip" data-start="32.540" data-duration="1.440" data-media-start="32.540" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg18" class="clip" data-start="34.000" data-duration="1.640" data-media-start="34.000" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg19" class="clip" data-start="35.660" data-duration="2.320" data-media-start="35.660" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg20" class="clip" data-start="38.000" data-duration="1.980" data-media-start="38.000" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg21" class="clip" data-start="40.000" data-duration="2.020" data-media-start="40.000" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg22" class="clip" data-start="42.040" data-duration="1.280" data-media-start="42.040" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg23" class="clip" data-start="43.340" data-duration="1.900" data-media-start="43.340" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg24" class="clip" data-start="45.260" data-duration="2.820" data-media-start="45.260" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg25" class="clip" data-start="48.100" data-duration="1.380" data-media-start="48.100" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
-    <video id="seg26" class="clip" data-start="49.500" data-duration="0.847" data-media-start="49.500" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>
+    <div class="lseg" style="filter:none;transform:scale(1.03) translate(0%,0%) scaleX(1)"><video id="seg0" class="clip" data-start="0.000" data-duration="2.000" data-media-start="0.000" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.22) saturate(1.4) contrast(1.12) brightness(1.03);transform:scale(1.32) translate(-6%,-12%) scaleX(1)"><video id="seg1" class="clip" data-start="2.020" data-duration="2.900" data-media-start="2.020" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(0.95) hue-rotate(-14deg) contrast(1.08) brightness(0.97);transform:scale(1.16) translate(5%,-4%) scaleX(1)"><video id="seg2" class="clip" data-start="4.940" data-duration="1.820" data-media-start="4.940" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(1.2) contrast(1.22) brightness(0.94);transform:scale(1.12) translate(0%,-7%) scaleX(-1)"><video id="seg3" class="clip" data-start="6.780" data-duration="2.440" data-media-start="6.780" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:none;transform:scale(1.03) translate(0%,0%) scaleX(1)"><video id="seg4" class="clip" data-start="9.240" data-duration="3.340" data-media-start="9.240" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.3) saturate(1.7) contrast(1.28) brightness(0.85) hue-rotate(-18deg);transform:scale(1.45) translate(-4%,-9%) scaleX(1)"><video id="seg5" class="clip" data-start="12.600" data-duration="1.980" data-media-start="12.600" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.22) saturate(1.4) contrast(1.12) brightness(1.03);transform:scale(1.32) translate(-6%,-12%) scaleX(1)"><video id="seg6" class="clip" data-start="14.600" data-duration="3.160" data-media-start="14.600" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:grayscale(1) contrast(1.38) brightness(1.04);transform:scale(1.52) translate(0%,-16%) scaleX(1)"><video id="seg7" class="clip" data-start="17.780" data-duration="2.440" data-media-start="17.780" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(0.95) hue-rotate(-14deg) contrast(1.08) brightness(0.97);transform:scale(1.16) translate(5%,-4%) scaleX(1)"><video id="seg8" class="clip" data-start="20.240" data-duration="2.380" data-media-start="20.240" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:none;transform:scale(1.03) translate(0%,0%) scaleX(1)"><video id="seg9" class="clip" data-start="22.640" data-duration="3.000" data-media-start="22.640" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(1.2) contrast(1.22) brightness(0.94);transform:scale(1.12) translate(0%,-7%) scaleX(-1)"><video id="seg10" class="clip" data-start="25.660" data-duration="2.060" data-media-start="25.660" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.22) saturate(1.4) contrast(1.12) brightness(1.03);transform:scale(1.32) translate(-6%,-12%) scaleX(1)"><video id="seg11" class="clip" data-start="27.740" data-duration="2.740" data-media-start="27.740" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.3) saturate(1.7) contrast(1.28) brightness(0.85) hue-rotate(-18deg);transform:scale(1.45) translate(-4%,-9%) scaleX(1)"><video id="seg12" class="clip" data-start="30.500" data-duration="1.880" data-media-start="30.500" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(0.95) hue-rotate(-14deg) contrast(1.08) brightness(0.97);transform:scale(1.16) translate(5%,-4%) scaleX(1)"><video id="seg13" class="clip" data-start="32.400" data-duration="2.680" data-media-start="32.400" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:grayscale(1) contrast(1.38) brightness(1.04);transform:scale(1.52) translate(0%,-16%) scaleX(1)"><video id="seg14" class="clip" data-start="35.100" data-duration="3.480" data-media-start="35.100" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:none;transform:scale(1.03) translate(0%,0%) scaleX(1)"><video id="seg15" class="clip" data-start="38.600" data-duration="2.040" data-media-start="38.600" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(1.2) contrast(1.22) brightness(0.94);transform:scale(1.12) translate(0%,-7%) scaleX(-1)"><video id="seg16" class="clip" data-start="40.660" data-duration="2.780" data-media-start="40.660" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:saturate(0.95) hue-rotate(-14deg) contrast(1.08) brightness(0.97);transform:scale(1.16) translate(5%,-4%) scaleX(1)"><video id="seg17" class="clip" data-start="43.460" data-duration="1.900" data-media-start="43.460" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.22) saturate(1.4) contrast(1.12) brightness(1.03);transform:scale(1.32) translate(-6%,-12%) scaleX(1)"><video id="seg18" class="clip" data-start="45.380" data-duration="2.580" data-media-start="45.380" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
+    <div class="lseg" style="filter:sepia(0.3) saturate(1.7) contrast(1.28) brightness(0.85) hue-rotate(-18deg);transform:scale(1.45) translate(-4%,-9%) scaleX(1)"><video id="seg19" class="clip" data-start="47.980" data-duration="2.367" data-media-start="47.980" src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>
   </div>
   <div class="flash" id="flash"></div>
-  <div class="words" id="words">
-      <div class="word" id="w0" style="font-size:clamp(38px,9.5vw,100px)">caminando</div>
-      <div class="word" id="w1" style="font-size:clamp(32px,8vw,84px)">ciudadanas</div>
-      <div class="word" id="w2" style="font-size:clamp(38px,9.5vw,100px)">necesitan</div>
-      <div class="word" id="w4" style="font-size:clamp(24px,5.4vw,58px)">infraestructuras</div>
-      <div class="word" id="w5" style="font-size:clamp(38px,9.5vw,100px)">política</div>
-      <div class="word" id="w6" style="font-size:clamp(32px,8vw,84px)">necesitamos</div>
-      <div class="word" id="w7" style="font-size:clamp(32px,8vw,84px)">participar</div>
-      <div class="word" id="w8" style="font-size:clamp(38px,9.5vw,100px)">jóvenes</div>
-      <div class="word" id="w9" style="font-size:clamp(28px,6.6vw,70px)">participación</div>
-      <div class="word" id="w10" style="font-size:clamp(32px,8vw,84px)">preparación</div>
-      <div class="word" id="w11" style="font-size:clamp(44px,11.5vw,118px)">porque</div>
-      <div class="word" id="w12" style="font-size:clamp(38px,9.5vw,100px)">tenemos</div>
-      <div class="word" id="w13" style="font-size:clamp(32px,8vw,84px)">participar</div>
-      <div class="word" id="w14" style="font-size:clamp(38px,9.5vw,100px)">levantar</div>
-      <div class="word" id="w15" style="font-size:clamp(32px,8vw,84px)">participando</div>
-      <div class="word" id="w16" style="font-size:clamp(38px,9.5vw,100px)">quitando</div>
-      <div class="word" id="w17" style="font-size:clamp(38px,9.5vw,100px)">realmente</div>
-      <div class="word" id="w18" style="font-size:clamp(38px,9.5vw,100px)">podemos</div>
-      <div class="word" id="w19" style="font-size:clamp(38px,9.5vw,100px)">podemos</div>
-      <div class="word" id="w20" style="font-size:clamp(44px,11.5vw,118px)">adana</div>
-      <div class="word" id="w21" style="font-size:clamp(38px,9.5vw,100px)">profesora</div>
-      <div class="word" id="w22" style="font-size:clamp(44px,11.5vw,118px)">visto</div>
-      <div class="word" id="w23" style="font-size:clamp(38px,9.5vw,100px)">mejorar</div>
-      <div class="word" id="w24" style="font-size:clamp(38px,9.5vw,100px)">proponer</div>
-      <div class="word" id="w25" style="font-size:clamp(44px,11.5vw,118px)">lograr</div>
-      <div class="word" id="w26" style="font-size:clamp(38px,9.5vw,100px)">cambios</div>
-  </div>
   <div class="caps" id="caps">
-      <div class="cap" id="cap0">Yo caminando por las calles</div>
-      <div class="cap" id="cap1">me de cuenta de que la ciudadanas y los ciudadanos</div>
-      <div class="cap" id="cap2">necesitan más en cuanto</div>
-      <div class="cap" id="cap3">a</div>
-      <div class="cap" id="cap4">infraestructuras salud apoyos</div>
-      <div class="cap" id="cap5">la vieja política está obsoleta</div>
-      <div class="cap" id="cap6">y es por eso que necesitamos los jóvenes</div>
-      <div class="cap" id="cap7">cada día participar</div>
-      <div class="cap" id="cap8">más jóvenes con mente fresca</div>
-      <div class="cap" id="cap9">con visión participación</div>
-      <div class="cap" id="cap10">con preparación nuestra ciudad</div>
-      <div class="cap" id="cap11">de año Pues por lo mismo porque somos el</div>
-      <div class="cap" id="cap12">futuro de México tenemos</div>
-      <div class="cap" id="cap13">que participar tenemos que</div>
-      <div class="cap" id="cap14">levantar la mano perder el miedo a lo mejor</div>
-      <div class="cap" id="cap15">del que dirán participando</div>
-      <div class="cap" id="cap16">es como se van quitando esas cosas</div>
-      <div class="cap" id="cap17">que vamos cargando o sea realmente</div>
-      <div class="cap" id="cap18">que podemos perder es más lo que</div>
-      <div class="cap" id="cap19">podemos ganar que lo que podemos perder que yo como</div>
-      <div class="cap" id="cap20">se adana a joven mujer</div>
-      <div class="cap" id="cap21">profesora poder proponer aspectos</div>
-      <div class="cap" id="cap22">que yo he visto que se</div>
-      <div class="cap" id="cap23">pueden mejorar y es así</div>
-      <div class="cap" id="cap24">y es la única manera en que podemos proponer</div>
-      <div class="cap" id="cap25">y lograr</div>
-      <div class="cap" id="cap26">esos cambios</div>
+      <div class="cap" id="cap0"><span class="kb">caminando</span>Yo por las calles me doy cuenta</div>
+      <div class="cap" id="cap1"><span class="kb">ciudadanas</span>de que las y los ciudadanos necesitan más</div>
+      <div class="cap" id="cap2"><span class="kb">educación</span>En cuanto a</div>
+      <div class="cap" id="cap3"><span class="kb">infraestructura</span>salud apoyos</div>
+      <div class="cap" id="cap4"><span class="kb">necesitamos</span>la vieja política está obsoleta Y es por eso que</div>
+      <div class="cap" id="cap5"><span class="kb">participar</span>los jóvenes cada día</div>
+      <div class="cap" id="cap6"><span class="kb">Jóvenes</span>más con mente fresca con visión</div>
+      <div class="cap" id="cap7"><span class="kb">participación</span>con con preparación</div>
+      <div class="cap" id="cap8"><span class="kb">ciudadanía</span>nuestra Pues por lo mismo</div>
+      <div class="cap" id="cap9"><span class="kb">participar</span>porque somos el futuro de México tenemos que O sea</div>
+      <div class="cap" id="cap10"><span class="kb">levantar</span>tenemos que la mano perder el</div>
+      <div class="cap" id="cap11"><span class="kb">Participando</span>miedo a lo mejor del que dirán es</div>
+      <div class="cap" id="cap12"><span class="kb">quitando</span>como se van esas cosas</div>
+      <div class="cap" id="cap13"><span class="kb">realmente</span>que vamos cargando sea ¿qué podemos perder</div>
+      <div class="cap" id="cap14"><span class="kb">ciudadana</span>Es más lo que podemos ganar que lo que podemos perder Que yo como</div>
+      <div class="cap" id="cap15"><span class="kb">profesora</span>joven mujer poder</div>
+      <div class="cap" id="cap16"><span class="kb">proponer</span>aspectos que yo he visto que se pueden</div>
+      <div class="cap" id="cap17"><span class="kb">mejorar</span>Y es así y</div>
+      <div class="cap" id="cap18"><span class="kb">proponer</span>es la única manera en que podemos</div>
+      <div class="cap" id="cap19"><span class="kb">cambios</span>y lograr esos</div>
   </div>
+      <div class="plate p0" id="plate0">INFRAESTRUCTURA</div>
+      <div class="plate p1" id="plate1">LEVANTAR</div>
+      <div class="plate p2" id="plate2">MEJORAR</div>
       <audio id="tick0" class="clip" data-start="0.000" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
       <audio id="whoosh0" class="clip" data-start="0.000" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick1" class="clip" data-start="1.580" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick2" class="clip" data-start="4.100" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick3" class="clip" data-start="5.580" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick4" class="clip" data-start="7.260" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="whoosh4" class="clip" data-start="7.260" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick5" class="clip" data-start="9.420" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick6" class="clip" data-start="11.260" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick7" class="clip" data-start="13.460" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick8" class="clip" data-start="14.800" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="whoosh8" class="clip" data-start="14.800" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick9" class="clip" data-start="16.740" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick10" class="clip" data-start="19.440" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick11" class="clip" data-start="21.200" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick12" class="clip" data-start="23.220" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="whoosh12" class="clip" data-start="23.220" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick13" class="clip" data-start="24.480" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick14" class="clip" data-start="26.440" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick15" class="clip" data-start="28.680" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick16" class="clip" data-start="30.640" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="whoosh16" class="clip" data-start="30.640" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick17" class="clip" data-start="32.540" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick18" class="clip" data-start="34.000" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick19" class="clip" data-start="35.660" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick20" class="clip" data-start="38.000" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="whoosh20" class="clip" data-start="38.000" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick21" class="clip" data-start="40.000" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick22" class="clip" data-start="42.040" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick23" class="clip" data-start="43.340" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="tick24" class="clip" data-start="45.260" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
-      <audio id="whoosh24" class="clip" data-start="45.260" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
-      <audio id="tick25" class="clip" data-start="48.100" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick1" class="clip" data-start="2.020" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick2" class="clip" data-start="4.940" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick3" class="clip" data-start="6.780" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick4" class="clip" data-start="9.240" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="whoosh4" class="clip" data-start="9.240" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
+      <audio id="tick5" class="clip" data-start="12.600" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick6" class="clip" data-start="14.600" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick7" class="clip" data-start="17.780" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick8" class="clip" data-start="20.240" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="whoosh8" class="clip" data-start="20.240" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
+      <audio id="tick9" class="clip" data-start="22.640" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick10" class="clip" data-start="25.660" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick11" class="clip" data-start="27.740" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick12" class="clip" data-start="30.500" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="whoosh12" class="clip" data-start="30.500" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
+      <audio id="tick13" class="clip" data-start="32.400" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick14" class="clip" data-start="35.100" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick15" class="clip" data-start="38.600" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick16" class="clip" data-start="40.660" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="whoosh16" class="clip" data-start="40.660" data-duration="0.65" data-volume="0.5" src="assets/sfx/whoosh.wav"></audio>
+      <audio id="tick17" class="clip" data-start="43.460" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="tick18" class="clip" data-start="45.380" data-duration="0.12" data-volume="0.28" src="assets/sfx/tick.wav"></audio>
+      <audio id="ding0" class="clip" data-start="7.030" data-duration="0.35" data-volume="0.4" src="assets/sfx/ding.wav"></audio>
+      <audio id="ding1" class="clip" data-start="25.910" data-duration="0.35" data-volume="0.4" src="assets/sfx/ding.wav"></audio>
+      <audio id="ding2" class="clip" data-start="43.710" data-duration="0.35" data-volume="0.4" src="assets/sfx/ding.wav"></audio>
   <div class="bar" id="bar"></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -147,168 +110,100 @@ const tl=gsap.timeline({paused:true});
 tl.to('#bar',{scaleX:1,duration:50.367,ease:'none'},0);
 tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},0.000);
 tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},0.000);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},0.000);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},0.055);
-tl.fromTo('#w0',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},0.000);
-tl.to('#w0',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},1.050);
-tl.fromTo('#cap0',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},0.000);
-tl.to('#cap0',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},1.360);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},1.580);
-tl.fromTo('#w1',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},1.580);
-tl.to('#w1',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},2.630);
-tl.fromTo('#cap1',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},1.580);
-tl.to('#cap1',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},3.880);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},4.100);
-tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},4.100);
-tl.fromTo('#w2',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},4.100);
-tl.to('#w2',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},5.150);
-tl.fromTo('#cap2',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},4.100);
-tl.to('#cap2',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},5.360);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},5.580);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},5.580);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},5.580);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},5.635);
-tl.fromTo('#cap3',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},5.580);
-tl.to('#cap3',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},7.040);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},7.260);
-tl.fromTo('#w3',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},7.260);
-tl.to('#w3',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},8.310);
-tl.fromTo('#cap4',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},7.260);
-tl.to('#cap4',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},9.200);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},9.420);
-tl.fromTo('#w4',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},9.420);
-tl.to('#w4',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},10.470);
-tl.fromTo('#cap5',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},9.420);
-tl.to('#cap5',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},11.040);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},11.260);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},11.260);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},11.260);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},11.315);
-tl.fromTo('#w5',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},11.260);
-tl.to('#w5',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},12.310);
-tl.fromTo('#cap6',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},11.260);
-tl.to('#cap6',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},13.240);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},13.460);
-tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},13.460);
-tl.fromTo('#w6',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},13.460);
-tl.to('#w6',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},14.510);
-tl.fromTo('#cap7',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},13.460);
-tl.to('#cap7',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},14.580);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},14.800);
-tl.fromTo('#w7',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},14.800);
-tl.to('#w7',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},15.850);
-tl.fromTo('#cap8',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},14.800);
-tl.to('#cap8',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},16.520);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},16.740);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},16.740);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},16.740);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},16.795);
-tl.fromTo('#w8',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},16.740);
-tl.to('#w8',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},17.790);
-tl.fromTo('#cap9',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},16.740);
-tl.to('#cap9',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},19.220);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},19.440);
-tl.fromTo('#w9',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},19.440);
-tl.to('#w9',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},20.490);
-tl.fromTo('#cap10',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},19.440);
-tl.to('#cap10',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},20.980);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},21.200);
-tl.fromTo('#w10',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},21.200);
-tl.to('#w10',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},22.250);
-tl.fromTo('#cap11',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},21.200);
-tl.to('#cap11',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},23.000);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},23.220);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},23.220);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},23.220);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},23.275);
-tl.fromTo('#w11',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},23.220);
-tl.to('#w11',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},24.270);
-tl.fromTo('#cap12',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},23.220);
-tl.to('#cap12',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},24.260);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},24.480);
-tl.fromTo('#w12',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},24.480);
-tl.to('#w12',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},25.530);
-tl.fromTo('#cap13',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},24.480);
-tl.to('#cap13',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},26.220);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},26.440);
-tl.fromTo('#w13',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},26.440);
-tl.to('#w13',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},27.490);
-tl.fromTo('#cap14',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},26.440);
-tl.to('#cap14',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},28.460);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},28.680);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},28.680);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},28.680);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},28.735);
-tl.fromTo('#w14',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},28.680);
-tl.to('#w14',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},29.730);
-tl.fromTo('#cap15',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},28.680);
-tl.to('#cap15',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},30.420);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},30.640);
-tl.fromTo('#w15',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},30.640);
-tl.to('#w15',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},31.690);
-tl.fromTo('#cap16',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},30.640);
-tl.to('#cap16',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},32.320);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},32.540);
-tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},32.540);
-tl.fromTo('#w16',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},32.540);
-tl.to('#w16',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},33.590);
-tl.fromTo('#cap17',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},32.540);
-tl.to('#cap17',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},33.780);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},34.000);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},34.000);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},34.000);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},34.055);
-tl.fromTo('#w17',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},34.000);
-tl.to('#w17',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},35.050);
-tl.fromTo('#cap18',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},34.000);
-tl.to('#cap18',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},35.440);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},35.660);
-tl.fromTo('#w18',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},35.660);
-tl.to('#w18',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},36.710);
-tl.fromTo('#cap19',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},35.660);
-tl.to('#cap19',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},37.780);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},38.000);
-tl.fromTo('#w19',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},38.000);
-tl.to('#w19',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},39.050);
-tl.fromTo('#cap20',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},38.000);
-tl.to('#cap20',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},39.780);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},40.000);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},40.000);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},40.000);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},40.055);
-tl.fromTo('#w20',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},40.000);
-tl.to('#w20',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},41.050);
-tl.fromTo('#cap21',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},40.000);
-tl.to('#cap21',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},41.820);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},42.040);
-tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},42.040);
-tl.fromTo('#w21',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},42.040);
-tl.to('#w21',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},43.090);
-tl.fromTo('#cap22',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},42.040);
-tl.to('#cap22',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},43.120);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},43.340);
-tl.fromTo('#w22',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},43.340);
-tl.to('#w22',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},44.390);
-tl.fromTo('#cap23',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},43.340);
-tl.to('#cap23',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},45.040);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},45.260);
-tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},45.260);
-tl.fromTo('#flash',{opacity:0},{opacity:0.55,duration:0.055,ease:'none'},45.260);
-tl.to('#flash',{opacity:0,duration:0.14,ease:'power1.out'},45.315);
-tl.fromTo('#w23',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},45.260);
-tl.to('#w23',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},46.310);
-tl.fromTo('#cap24',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},45.260);
-tl.to('#cap24',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},47.880);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},48.100);
-tl.fromTo('#w24',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},48.100);
-tl.to('#w24',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},49.150);
-tl.fromTo('#cap25',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},48.100);
-tl.to('#cap25',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},49.280);
-tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},49.500);
-tl.fromTo('#w25',{opacity:0,y:30,scale:0.94},{opacity:1,y:0,scale:1,duration:0.18,ease:'power4.out'},49.500);
-tl.to('#w25',{opacity:0,y:-18,scale:0.97,duration:0.18,ease:'power4.in'},50.287);
-tl.fromTo('#cap26',{opacity:0,y:24},{opacity:1,y:0,duration:0.2,ease:'power4.out'},49.500);
-tl.to('#cap26',{opacity:0,y:-14,duration:0.2,ease:'power4.in'},50.147);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},0.000);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},0.045);
+tl.fromTo('#cap0',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},0.000);
+tl.to('#cap0',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},1.820);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},2.020);
+tl.fromTo('#cap1',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},2.020);
+tl.to('#cap1',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},4.740);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},4.940);
+tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},4.940);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},4.940);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},4.985);
+tl.fromTo('#cap2',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},4.940);
+tl.to('#cap2',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},6.580);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},6.780);
+tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},6.780);
+tl.fromTo('#cap3',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},6.780);
+tl.to('#cap3',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},9.040);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},9.240);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},9.240);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},9.285);
+tl.fromTo('#cap4',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},9.240);
+tl.to('#cap4',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},12.400);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},12.600);
+tl.fromTo('#cap5',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},12.600);
+tl.to('#cap5',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},14.400);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},14.600);
+tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},14.600);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},14.600);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},14.645);
+tl.fromTo('#cap6',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},14.600);
+tl.to('#cap6',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},17.580);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},17.780);
+tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},17.780);
+tl.fromTo('#cap7',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},17.780);
+tl.to('#cap7',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},20.040);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},20.240);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},20.240);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},20.285);
+tl.fromTo('#cap8',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},20.240);
+tl.to('#cap8',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},22.440);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},22.640);
+tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},22.640);
+tl.fromTo('#cap9',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},22.640);
+tl.to('#cap9',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},25.460);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},25.660);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},25.660);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},25.705);
+tl.fromTo('#cap10',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},25.660);
+tl.to('#cap10',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},27.540);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},27.740);
+tl.fromTo('#cap11',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},27.740);
+tl.to('#cap11',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},30.300);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},30.500);
+tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},30.500);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},30.500);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},30.545);
+tl.fromTo('#cap12',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},30.500);
+tl.to('#cap12',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},32.200);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},32.400);
+tl.fromTo('#cap13',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},32.400);
+tl.to('#cap13',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},34.900);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},35.100);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},35.100);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},35.145);
+tl.fromTo('#cap14',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},35.100);
+tl.to('#cap14',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},38.400);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},38.600);
+tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},38.600);
+tl.fromTo('#cap15',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},38.600);
+tl.to('#cap15',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},40.460);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},40.660);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},40.660);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},40.705);
+tl.fromTo('#cap16',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},40.660);
+tl.to('#cap16',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},43.260);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},43.460);
+tl.fromTo('#vwrap',{x:-12},{x:0,duration:0.34,ease:'power2.out'},43.460);
+tl.fromTo('#cap17',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},43.460);
+tl.to('#cap17',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},45.180);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},45.380);
+tl.fromTo('#vwrap',{x:12},{x:0,duration:0.34,ease:'power2.out'},45.380);
+tl.fromTo('#flash',{opacity:0},{opacity:0.35,duration:0.045,ease:'none'},45.380);
+tl.to('#flash',{opacity:0,duration:0.12,ease:'power1.out'},45.425);
+tl.fromTo('#cap18',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},45.380);
+tl.to('#cap18',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},47.780);
+tl.fromTo('#vwrap',{scale:1.14},{scale:1,duration:0.24,ease:'power3.out'},47.980);
+tl.fromTo('#cap19',{opacity:0,y:22},{opacity:1,y:0,duration:0.18,ease:'power4.out'},47.980);
+tl.to('#cap19',{opacity:0,y:-12,duration:0.18,ease:'power4.in'},50.167);
+tl.fromTo('#plate0',{opacity:0,scale:1.3},{opacity:1,scale:1,duration:0.09,ease:'power3.out'},7.030);
+tl.to('#plate0',{opacity:0,scale:1.06,duration:0.12,ease:'power2.in'},7.460);
+tl.fromTo('#plate1',{opacity:0,scale:1.3},{opacity:1,scale:1,duration:0.09,ease:'power3.out'},25.910);
+tl.to('#plate1',{opacity:0,scale:1.06,duration:0.12,ease:'power2.in'},26.340);
+tl.fromTo('#plate2',{opacity:0,scale:1.3},{opacity:1,scale:1,duration:0.09,ease:'power3.out'},43.710);
+tl.to('#plate2',{opacity:0,scale:1.06,duration:0.12,ease:'power2.in'},44.140);
 // the runtime drives each timed <video class="clip"> segment itself
 window.__timelines={main:tl};
 </script>
