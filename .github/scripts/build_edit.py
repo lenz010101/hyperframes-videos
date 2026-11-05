@@ -151,10 +151,25 @@ LOOKS = [
 ]
 SEQ = [0, 1, 2, 3, 0, 4, 1, 5, 2, 0, 3, 1, 4, 2, 5, 0, 3, 2, 1, 4, 0, 5, 2, 3, 1, 4, 2]
 
+def build_seq(n, seq):
+    """Look index per segment, never repeating the previous one."""
+    out = []
+    for k in range(n):
+        li = seq[k % len(seq)]
+        if k and li == out[-1]:
+            for off in range(1, len(seq)):
+                cand = seq[(k + off) % len(seq)]
+                if cand != out[-1]:
+                    li = cand
+                    break
+        out.append(li)
+    return out
+
 def gen_segments_html(cuts, seq):
+    seq = build_seq(len(cuts), seq)
     out = []
     for k, (a, b) in enumerate(cuts):
-        lk = LOOKS[seq[k % len(seq)]]
+        lk = LOOKS[seq[k]]
         d = max(0.2, b - a - 0.02)
         style = (f"filter:{lk['f']};transform:scale({lk['s']}) "
                  f"translate({lk['x']},{lk['y']}) scaleX({lk['fx']})")
@@ -204,7 +219,14 @@ def gen_plates(cuts, segs_words, dur):
         t1 = min(a + 0.8, b - 0.1)
         if t1 <= t0 + 0.3:
             continue
-        html.append(f'      <div class="plate p{idx % 3}" id="plate{idx}">{esc(word)}</div>')
+        n = len(word)
+        if n <= 8:
+            fs = ""
+        elif n <= 12:
+            fs = " style=\"font-size:clamp(36px,9.5vw,96px)\""
+        else:
+            fs = " style=\"font-size:clamp(30px,7vw,72px);letter-spacing:.5px\""
+        html.append(f'      <div class="plate p{idx % 3}" id="plate{idx}"{fs}>{esc(word)}</div>')
         events.append((round(t0, 3), round(t1, 3), idx))
         idx += 1
     return "\n".join(html), events, grads_css
@@ -223,7 +245,7 @@ def gen_sfx_html(cuts, plate_events):
     return "\n".join(out)
 
 def gen_tweens(cuts, segs_words, dur, plate_events):
-    lines = ["tl.to('#bar',{scaleX:1,duration:%.3f,ease:'none'},0);" % dur]
+    lines = []
     ci = 0
     for i, ((w, phrase), (a, b)) in enumerate(zip(segs_words, cuts)):
         nxt = cuts[i + 1][0] if i + 1 < len(cuts) else dur
@@ -267,7 +289,6 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(40px,12vw,120px);color:#fff;text-transform:uppercase;text-align:center;max-width:90%;letter-spacing:2px;
 text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
 §§PLATE_GRADS§§
-.bar{position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#ff3b5c,#ff9a3c);transform:scaleX(0);transform-origin:left;z-index:5}
 </style>
 </head>
 <body>
@@ -281,7 +302,6 @@ text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
   </div>
 §§PLATES_HTML§§
 §§SFX_HTML§§
-  <div class="bar" id="bar"></div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
