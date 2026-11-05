@@ -7,7 +7,7 @@ Writes (back into scenes.json):
   captions_whatsapp   [[s, e, text], ...]   - real auto-captions (faster-whisper)
   dur_whatsapp        base duration in seconds
 """
-import json, re, subprocess, sys
+import json, os, re, subprocess, sys, tempfile
 
 def run(cmd):
     return subprocess.run(cmd, check=True, capture_output=True, text=True)
@@ -71,7 +71,7 @@ dur_wa = probe_dur(base)
 dur_refe = float(sc["dur_refe"])
 
 import tempfile
-keep = tempfile.join(tempfile.gettempdir(), "ref_frame.png")
+keep = os.path.join(tempfile.gettempdir(), "ref_frame.png")
 overlay = []
 for t in sc["scene_times_refe"]:
     if t > dur_refe - 1.2:

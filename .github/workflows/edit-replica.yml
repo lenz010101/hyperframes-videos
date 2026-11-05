@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: "22"
       - name: Install faster-whisper
-        run: pip install -q faster-whisper || pip3 install -q faster-whisper || pipx install faster-whisper || true
+        run: python3 -m pip install -q --break-system-packages faster-whisper || pip install -q faster-whisper || true
       - name: Synthesize SFX
         run: |
           mkdir -p assets/sfx
