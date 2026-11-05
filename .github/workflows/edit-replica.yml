@@ -1,0 +1,49 @@
+name: Edit Replica Sheet
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Base video in the repo to edit"
+        required: true
+        default: "whatsapp.mp4"
+      fps:
+        description: "FPS"
+        required: true
+        default: "30"
+      resolution:
+        description: "Resolution preset"
+        required: true
+        default: "portrait"
+permissions:
+  contents: write
+jobs:
+  replica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg tesseract-ocr tesseract-ocr-spa
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build overlay schedule
+        run: python3 .github/scripts/build_edit.py "${{ github.event.inputs.base }}" refe.mp4 scenes.json
+      - name: Render the edit
+        run: npx hyperframes render wa-edit.html --output ./out/wa_edit.mp4 --fps ${{ github.event.inputs.fps }} --resolution ${{ github.event.inputs.resolution }} --format mp4
+      - name: Contact sheet of the edit
+        run: bash .github/scripts/contact_sheet.sh ./out/wa_edit.mp4
+      - name: Commit sheet
+        run: |
+          git pull --rebase origin main
+          git config user.name "edit-replica-bot"
+          git config user.email "actions@localhost"
+          git add sheets
+          git commit -m "Add edit replica sheet for ${{ github.event.inputs.base }}" || echo "nothing to commit"
+          git push
+      - name: Upload render artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wa-edit-render
+          path: out/wa_edit.mp4
+          retention-days: 7
