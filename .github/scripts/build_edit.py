@@ -403,6 +403,147 @@ def gen_slams(cuts, segs_words, flat):
         idx += 1
     return "\n".join(html), "\n".join(tw), slams
 
+
+# ----------------------------------------------------------- catalog-style motion layer
+# Reimplemented natively inside #main from the catalog blocks:
+# caption-kinetic-slam (Anton + burst), headline-slam (1.6->1 + stage shake),
+# marker-highlight (drawn stroke), badge-pop (circular badge)
+
+CAT_ACCENTS = ["#ffd643", "#ff5f6d", "#3bd2ff", "#b27bff"]
+
+CAT_BURST_SVG = (
+    '<svg class="cat-burst" viewBox="-50 -50 100 100">'
+    + "".join(
+        '<line x1="0" y1="0" x2="{r:.0f}" y2="0" transform="rotate({d:.1f})" />'.format(
+            r=44 * (0.55 + 0.45 * (i % 2)), d=i * 22.5)
+        for i in range(16)
+    )
+    + "</svg>"
+)
+
+def gen_cat_slams(cuts, segs_words, flat):
+    """Full-screen kinetic slam per segment: Anton font, burst rays, color pop.
+    Replicates caption-kinetic-slam from the catalog."""
+    html, tw, slams = [], [], []
+    idx = 0
+    for k, (w, phrase) in enumerate(segs_words):
+        if not w:
+            continue
+        a, b = cuts[k]
+        target = norm_txt(w)
+        st = en = None
+        for s, e, wd in flat:
+            if a - 0.05 <= s < b and norm_txt(wd) == target:
+                st, en = round(s, 3), round(e, 3)
+                break
+        if st is None:
+            st = round(a + 0.15, 3)
+            en = round(min(b, st + 0.8), 3)
+        show = min(max(0.6, en - st), b - a - 0.25)
+        endt = round(st + show, 3)
+        if endt - st < 0.4:
+            continue
+        acc = CAT_ACCENTS[idx % len(CAT_ACCENTS)]
+        n = len(w)
+        if n <= 7:
+            fs = "clamp(44px,12vw,130px)"
+        elif n <= 11:
+            fs = "clamp(36px,10vw,110px)"
+        elif n <= 15:
+            fs = "clamp(30px,8vw,90px)"
+        else:
+            fs = "clamp(24px,6vw,70px)"
+        html.append(f'      <div class="catslam" id="cslam{idx}">{CAT_BURST_SVG}'
+                    f'<span style="font-size:{fs};--xa:{acc}">{esc(w.upper())}</span></div>')
+        mode = idx % 4
+        if mode == 0:
+            tw.append(f"tl.fromTo('#cslam{idx}',{{y:-150,opacity:0}},{{y:0,opacity:1,duration:0.22,ease:'back.out(1.7)'}},{st:.3f});")
+        elif mode == 1:
+            tw.append(f"tl.fromTo('#cslam{idx}',{{x:-320,opacity:0}},{{x:0,opacity:1,duration:0.2,ease:'expo.out'}},{st:.3f});")
+        elif mode == 2:
+            tw.append(f"tl.fromTo('#cslam{idx}',{{x:320,opacity:0}},{{x:0,opacity:1,duration:0.2,ease:'expo.out'}},{st:.3f});")
+        else:
+            tw.append(f"tl.fromTo('#cslam{idx}',{{scale:0.4,opacity:0}},{{scale:1,opacity:1,duration:0.24,ease:'back.out(2.2)'}},{st:.3f});")
+        tw.append(f"tl.fromTo('#cslam{idx} .cat-burst',{{scale:0.5,opacity:0,rotation:-24}},{{scale:1,opacity:0.9,rotation:0,duration:0.2,ease:'power3.out'}},{st:.3f});")
+        tw.append(f"tl.to('#cslam{idx} .cat-burst',{{rotation:30,duration:{endt-st:.3f},ease:'none'}},{st+0.2:.3f});")
+        tw.append(f"tl.to('#cslam{idx}',{{opacity:0,scale:0.9,duration:0.14,ease:'power2.in'}},{endt:.3f});")
+        slams.append([round(st, 2), w])
+        idx += 1
+    return "\n".join(html), "\n".join(tw), slams
+
+def gen_headline_slams(cuts, segs_words):
+    """Big headline slam 1.6->1 with stage shake, from catalog headline-slam."""
+    html, tw, heads = [], [], []
+    idx = 0
+    for k, (w, phrase) in enumerate(segs_words):
+        if not phrase or k % 3 != 0:
+            continue
+        a, b = cuts[k]
+        n = len(phrase)
+        if n <= 20:
+            fs = "clamp(30px,8vw,64px)"
+        elif n <= 35:
+            fs = "clamp(24px,6vw,52px)"
+        else:
+            fs = "clamp(18px,5vw,40px)"
+        html.append(f'      <div class="headline" id="head{idx}" style="font-size:{fs}">'
+                    f'<span class="hw">{esc(phrase)}</span></div>')
+        tw.append(f"tl.fromTo('#head{idx}',{{scale:1.6,opacity:0}},{{scale:1,opacity:1,duration:0.65,ease:'expo.out'}},{a:.3f});")
+        tw.append(f"tl.to('#vwrap',{{x:6,y:-4,duration:0.033,ease:'power2.out'}},{a+0.58:.3f});")
+        tw.append(f"tl.to('#vwrap',{{x:-4,y:2,duration:0.033,ease:'power2.out'}},{a+0.58+0.033:.3f});")
+        tw.append(f"tl.to('#vwrap',{{x:0,y:0,duration:0.033,ease:'power2.out'}},{a+0.58+0.066:.3f});")
+        tw.append(f"tl.to('#head{idx}',{{y:-110,duration:0.42,ease:'power4.in'}},{max(a+0.75, b-0.15):.3f});")
+        heads.append([round(a, 2), phrase])
+        idx += 1
+    return "\n".join(html), "\n".join(tw), heads
+
+def gen_markers(cuts, segs_words, flat):
+    """Marker-highlight style: phrase with drawn underline on the key word."""
+    html, tw, marks = [], [], []
+    idx = 0
+    for k, (w, phrase) in enumerate(segs_words):
+        if not (w and phrase) or k % 4 != 0:
+            continue
+        a, b = cuts[k]
+        t0 = round(a + 0.15, 3)
+        t1 = round(min(b - 0.1, a + 1.4), 3)
+        if t1 - t0 < 0.5:
+            continue
+        n = len(phrase)
+        if n <= 25:
+            fs = "clamp(24px,6vw,48px)"
+        else:
+            fs = "clamp(18px,5vw,38px)"
+        html.append(f'      <div class="marker" id="mark{idx}" style="font-size:{fs}">'
+                    f'<span class="mh-text">{esc(phrase)}</span>'
+                    f'<svg class="mh-line" viewBox="0 0 200 20" preserveAspectRatio="none"><path class="mh-path" d="M 10 14 Q 100 14 190 14" fill="none" stroke="#fff" stroke-width="3"/></svg></div>')
+        tw.append(f"tl.fromTo('#mark{idx}',{{opacity:0,y:16}},{{opacity:1,y:0,duration:0.45,ease:'power4.out'}},{t0:.3f});")
+        tw.append(f"tl.fromTo('#mark{idx} .mh-path',{{stroke-dasharray:220,stroke-dashoffset:220}},{{stroke-dashoffset:0,duration:0.55,ease:'power2.out'}},{t0+0.1:.3f});")
+        tw.append(f"tl.to('#mark{idx}',{{opacity:0,y:-10,duration:0.3,ease:'power2.in'}},{t1:.3f});")
+        marks.append([round(t0, 2), phrase])
+        idx += 1
+    return "\n".join(html), "\n".join(tw), marks
+
+def gen_badges(cuts, segs_words):
+    """Badge-pop style circular badge with number, from catalog badge-pop."""
+    html, tw, badges = [], [], []
+    idx = 0
+    for k, (a, b) in enumerate(cuts[:-1]):
+        if k % 6 != 2 or b - a < 1.0:
+            continue
+        t0 = round(a + 0.2, 3)
+        t1 = round(min(b - 0.15, a + 0.9), 3)
+        if t1 - t0 < 0.4:
+            continue
+        num = str((idx % 9) + 1)
+        html.append(f'      <div class="badge" id="badge{idx}">{esc(num)}</div>')
+        tw.append(f"tl.fromTo('#badge{idx}',{{scale:0,opacity:0}},{{scale:1,opacity:1,duration:0.42,ease:'back.out(2.4)'}},{t0:.3f});")
+        tw.append(f"tl.to('#badge{idx}',{{scale:1.15,duration:0.12,yoyo:true,repeat:1,ease:'power1.inOut'}},{t0+0.45:.3f});")
+        tw.append(f"tl.to('#badge{idx}',{{scale:0,opacity:0,duration:0.18,ease:'power2.in'}},{t1:.3f});")
+        badges.append([round(t0, 2), num])
+        idx += 1
+    return "\n".join(html), "\n".join(tw), badges
+
 COMPO_TEMPLATE = """<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -432,6 +573,17 @@ html,body{margin:0;height:100%;background:#000;overflow:hidden}
 .plate{position:absolute;inset:0;z-index:9;display:grid;place-items:center;pointer-events:none;opacity:0;
 font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(40px,12vw,120px);color:#fff;text-transform:uppercase;text-align:center;max-width:90%;letter-spacing:2px;
 text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
+.catslam{position:absolute;left:0;right:0;top:2%;bottom:40%;z-index:12;display:grid;place-items:center;pointer-events:none;opacity:0}
+.catslam .cat-burst{position:absolute;width:min(82vw,640px);height:min(82vw,640px);z-index:0}
+.catslam .cat-burst line{stroke:rgba(255,255,255,.9);stroke-width:2.6;stroke-linecap:round}
+.catslam span{position:relative;z-index:1;font-family:'Anton','Archivo Black',Arial,Helvetica,sans-serif;color:#fff;text-transform:uppercase;line-height:.92;letter-spacing:1px;-webkit-text-stroke:2.6px #000;text-align:center;max-width:94%;text-shadow:0 8px 0 var(--xa),0 16px 0 rgba(0,0,0,.35),0 0 52px rgba(0,0,0,.35)}
+.headline{position:absolute;left:0;right:0;top:30%;z-index:12;display:grid;place-items:center;pointer-events:none;opacity:0;text-align:center;max-width:92%;font-family:'Archivo Black',Arial,Helvetica,sans-serif;color:#fff;line-height:1.05;letter-spacing:-0.5px;text-shadow:0 4px 0 rgba(0,0,0,.5),0 0 28px rgba(0,0,0,.4)}
+.headline .hw{display:block;-webkit-text-stroke:1.2px #000}
+.marker{position:absolute;left:0;right:0;top:48%;z-index:11;display:grid;place-items:center;pointer-events:none;opacity:0;text-align:center;max-width:90%;font-family:'Archivo Black',Arial,Helvetica,sans-serif;color:#fff;line-height:1.1;text-shadow:0 3px 0 rgba(0,0,0,.55)}
+.marker .mh-text{display:block;-webkit-text-stroke:1px #000}
+.marker .mh-line{position:absolute;bottom:0;left:50%;width:90%;z-index:0;transform:translateX(-50%);overflow:visible}
+.marker .mh-path{stroke-linecap:round}
+.badge{position:absolute;right:10%;bottom:12%;z-index:12;width:min(72vw,260px);height:min(72vw,260px);pointer-events:none;opacity:0;display:grid;place-items:center;border:5px solid #fff;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(24px,9vw,96px);font-weight:900;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.45)}
 §§PLATE_GRADS§§
 </style>
 </head>
@@ -446,6 +598,10 @@ text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
   </div>
 §§BROLL_HTML§§
 §§SLAM_HTML§§
+§§CATSLAM_HTML§§
+§§HEADLINE_HTML§§
+§§MARKER_HTML§§
+§§BADGE_HTML§§
 §§PLATES_HTML§§
 §§SFX_HTML§§
 </div>
@@ -485,6 +641,18 @@ print(f"b-roll: {len(broll_beats)} beats ({len(load_broll())} images)")
 slam_html, slam_tweens, slams = gen_slams(cuts, segs_words, flat)
 print(f"slams: {len(slams)}")
 
+cat_slam_html, cat_slam_tweens, cat_slams = gen_cat_slams(cuts, segs_words, flat)
+print(f"cat slams: {len(cat_slams)}")
+
+headline_html, headline_tweens, headlines = gen_headline_slams(cuts, segs_words)
+print(f"headlines: {len(headlines)}")
+
+marker_html, marker_tweens, markers = gen_markers(cuts, segs_words, flat)
+print(f"markers: {len(markers)}")
+
+badge_html, badge_tweens, badges = gen_badges(cuts, segs_words)
+print(f"badges: {len(badges)}")
+
 COMPO = (COMPO_TEMPLATE
          .replace("§§DUR§§", f"{dur_wa:.3f}")
          .replace("§§PLATE_GRADS§§", plate_grads)
@@ -493,10 +661,18 @@ COMPO = (COMPO_TEMPLATE
          .replace("§§PLATES_HTML§§", plates_html)
          .replace("§§BROLL_HTML§§", broll_html)
          .replace("§§SLAM_HTML§§", slam_html)
+         .replace("§§CATSLAM_HTML§§", cat_slam_html)
+         .replace("§§HEADLINE_HTML§§", headline_html)
+         .replace("§§MARKER_HTML§§", marker_html)
+         .replace("§§BADGE_HTML§§", badge_html)
          .replace("§§SFX_HTML§§", gen_sfx_html(cuts, plate_events))
          .replace("§§TWEENS§§", "\n".join([
              gen_tweens(cuts, segs_words, dur_wa, plate_events),
              slam_tweens,
+             cat_slam_tweens,
+             headline_tweens,
+             marker_tweens,
+             badge_tweens,
              broll_tweens])))
 open("wa-edit.html", "w", encoding="utf-8").write(COMPO)
 print(f"wa-edit.html written: {len(COMPO)} bytes")
@@ -507,6 +683,10 @@ sc["cut_times"] = [round(a, 2) for a, b in cuts]
 sc["kinetic_words"] = kinetic
 sc["plates"] = [[t0, t1, idx] for (t0, t1, idx) in plate_events]
 sc["slams"] = slams
+sc["cat_slams"] = cat_slams
+sc["headlines"] = headlines
+sc["markers"] = markers
+sc["badges"] = badges
 sc["broll"] = broll_beats
 sc["dur_whatsapp"] = dur_wa
 json.dump(sc, open(scenes_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
