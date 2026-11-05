@@ -114,41 +114,41 @@
   "captions_whatsapp": [
     [
       0.0,
-      2.12,
+      2.1,
       "Yo caminando por las calles me doy cuenta"
     ],
     [
-      2.12,
+      2.1,
       4.82,
-      "de que las ciudadanas y los ciudadanos necesitan más"
+      "de que las ciudadanas y los ciudadanos necesitan más."
     ],
     [
-      4.82,
-      9.16,
-      "en cuanto a educación, infraestructura, salud, apoyos."
+      4.94,
+      8.28,
+      "En cuanto a educación, infraestructura, salud,"
     ],
     [
-      9.26,
-      11.62,
-      "La vieja política está obsoleta y es por"
+      8.28,
+      11.18,
+      "apoyos, la vieja política está obsoleta."
     ],
     [
-      11.62,
+      11.32,
       14.92,
-      "eso que necesitamos los jóvenes cada día participar más."
+      "Y es por eso que necesitamos los jóvenes cada día participar más."
     ],
     [
-      15.12,
-      17.62,
+      15.1,
+      17.61,
       "Jóvenes con mente fresca, con visión,"
     ],
     [
-      17.62,
+      17.61,
       21.34,
       "con participación, con preparación, nuestra ciudadanía."
     ],
     [
-      21.44,
+      21.62,
       25.0,
       "Pues por lo mismo, porque somos el futuro de México, tenemos que participar."
     ],
@@ -158,7 +158,7 @@
       "O sea, tenemos que levantar la mano, perder el miedo a lo mejor del que dirán."
     ],
     [
-      29.78,
+      29.7,
       33.3,
       "Participando es como se van quitando esas cosas que vamos cargando."
     ],
@@ -174,13 +174,13 @@
     ],
     [
       37.4,
-      41.1,
-      "Que yo como ciudadana, joven, mujer, profesora, poder proponer"
+      40.38,
+      "Que yo como ciudadana, joven, mujer, profesora,"
     ],
     [
-      41.1,
+      40.38,
       43.9,
-      "aspectos que yo he visto que se pueden mejorar."
+      "poder proponer aspectos que yo he visto que se pueden mejorar."
     ],
     [
       44.1,
@@ -273,12 +273,12 @@
     [
       4.58,
       4.82,
-      "más"
+      "más."
     ],
     [
-      4.82,
+      4.94,
       5.08,
-      "en"
+      "En"
     ],
     [
       5.08,
@@ -292,11 +292,11 @@
     ],
     [
       5.82,
-      6.38,
+      6.36,
       "educación,"
     ],
     [
-      6.76,
+      6.78,
       7.62,
       "infraestructura,"
     ],
@@ -307,13 +307,13 @@
     ],
     [
       8.52,
-      9.16,
-      "apoyos."
+      9.14,
+      "apoyos,"
     ],
     [
-      9.26,
+      9.24,
       9.34,
-      "La"
+      "la"
     ],
     [
       9.34,
@@ -322,26 +322,26 @@
     ],
     [
       9.6,
-      10.04,
+      10.1,
       "política"
     ],
     [
-      10.04,
-      10.58,
+      10.1,
+      10.6,
       "está"
     ],
     [
-      10.58,
+      10.6,
       11.18,
-      "obsoleta"
-    ],
-    [
-      11.18,
-      11.32,
-      "y"
+      "obsoleta."
     ],
     [
       11.32,
+      11.34,
+      "Y"
+    ],
+    [
+      11.34,
       11.5,
       "es"
     ],
@@ -387,16 +387,16 @@
     ],
     [
       14.04,
-      14.58,
+      14.6,
       "participar"
     ],
     [
-      14.58,
+      14.6,
       14.92,
       "más."
     ],
     [
-      15.12,
+      15.1,
       15.34,
       "Jóvenes"
     ],
@@ -407,22 +407,22 @@
     ],
     [
       15.62,
-      15.8,
+      15.82,
       "mente"
     ],
     [
-      15.8,
+      15.82,
       16.36,
       "fresca,"
     ],
     [
-      16.66,
-      16.78,
+      16.6,
+      16.76,
       "con"
     ],
     [
-      16.78,
-      17.28,
+      16.76,
+      17.3,
       "visión,"
     ],
     [
@@ -442,11 +442,11 @@
     ],
     [
       19.38,
-      20.08,
+      20.06,
       "preparación,"
     ],
     [
-      20.22,
+      20.24,
       20.54,
       "nuestra"
     ],
@@ -456,7 +456,7 @@
       "ciudadanía."
     ],
     [
-      21.44,
+      21.62,
       21.8,
       "Pues"
     ],
@@ -476,7 +476,7 @@
       "mismo,"
     ],
     [
-      22.56,
+      22.64,
       22.68,
       "porque"
     ],
@@ -531,12 +531,12 @@
       "sea,"
     ],
     [
-      25.64,
-      25.96,
+      25.66,
+      25.94,
       "tenemos"
     ],
     [
-      25.96,
+      25.94,
       26.28,
       "que"
     ],
@@ -567,11 +567,11 @@
     ],
     [
       27.74,
-      28.08,
+      28.06,
       "miedo"
     ],
     [
-      28.08,
+      28.06,
       28.2,
       "a"
     ],
@@ -601,12 +601,12 @@
       "dirán."
     ],
     [
-      29.78,
-      30.24,
+      29.7,
+      30.22,
       "Participando"
     ],
     [
-      30.24,
+      30.22,
       30.5,
       "es"
     ],
@@ -622,11 +622,11 @@
     ],
     [
       30.92,
-      31.08,
+      31.1,
       "van"
     ],
     [
-      31.08,
+      31.1,
       31.5,
       "quitando"
     ],
@@ -642,11 +642,11 @@
     ],
     [
       32.4,
-      32.6,
+      32.62,
       "que"
     ],
     [
-      32.6,
+      32.62,
       32.8,
       "vamos"
     ],
@@ -712,11 +712,11 @@
     ],
     [
       36.26,
-      36.34,
+      36.36,
       "que"
     ],
     [
-      36.34,
+      36.36,
       36.48,
       "lo"
     ],
@@ -727,11 +727,11 @@
     ],
     [
       36.58,
-      36.82,
+      36.84,
       "podemos"
     ],
     [
-      36.82,
+      36.84,
       37.26,
       "perder."
     ],
@@ -756,7 +756,7 @@
       "ciudadana,"
     ],
     [
-      38.58,
+      38.6,
       38.96,
       "joven,"
     ],
@@ -771,7 +771,7 @@
       "profesora,"
     ],
     [
-      40.46,
+      40.38,
       40.66,
       "poder"
     ],
@@ -812,11 +812,11 @@
     ],
     [
       43.08,
-      43.22,
+      43.2,
       "se"
     ],
     [
-      43.22,
+      43.2,
       43.46,
       "pueden"
     ],
@@ -867,11 +867,11 @@
     ],
     [
       46.42,
-      46.7,
+      46.72,
       "en"
     ],
     [
-      46.7,
+      46.72,
       46.76,
       "que"
     ],
@@ -892,11 +892,11 @@
     ],
     [
       48.38,
-      49.38,
+      49.36,
       "lograr"
     ],
     [
-      49.38,
+      49.36,
       49.62,
       "esos"
     ],
@@ -909,20 +909,20 @@
   "cut_times": [
     0.0,
     2.02,
-    4.82,
-    6.76,
-    9.26,
+    4.94,
+    6.78,
+    9.24,
     12.6,
-    15.12,
+    14.6,
     17.78,
-    20.22,
-    22.56,
-    25.64,
+    20.24,
+    22.64,
+    25.66,
     27.74,
     30.5,
     32.4,
     35.1,
-    38.58,
+    38.6,
     40.66,
     43.46,
     45.38,
@@ -938,15 +938,15 @@
       "ciudadanas"
     ],
     [
-      4.82,
+      4.94,
       "educación"
     ],
     [
-      6.76,
+      6.78,
       "infraestructura"
     ],
     [
-      9.26,
+      9.24,
       "necesitamos"
     ],
     [
@@ -954,7 +954,7 @@
       "participar"
     ],
     [
-      15.12,
+      14.6,
       "Jóvenes"
     ],
     [
@@ -962,15 +962,15 @@
       "participación"
     ],
     [
-      20.22,
+      20.24,
       "ciudadanía"
     ],
     [
-      22.56,
+      22.64,
       "participar"
     ],
     [
-      25.64,
+      25.66,
       "levantar"
     ],
     [
@@ -990,7 +990,7 @@
       "ciudadana"
     ],
     [
-      38.58,
+      38.6,
       "profesora"
     ],
     [
@@ -1012,8 +1012,8 @@
   ],
   "plates": [
     [
-      5.07,
-      5.62,
+      5.19,
+      5.74,
       0
     ],
     [
@@ -1046,7 +1046,7 @@
       "necesitamos"
     ],
     [
-      15.12,
+      15.1,
       "Jóvenes"
     ],
     [
@@ -1058,7 +1058,7 @@
       "levantar"
     ],
     [
-      31.08,
+      31.1,
       "quitando"
     ],
     [
@@ -1076,17 +1076,17 @@
   ],
   "broll": [
     [
-      4.94,
-      6.64,
+      5.06,
+      6.66,
       "students"
     ],
     [
-      15.24,
-      17.42,
+      14.72,
+      16.9,
       "phones"
     ],
     [
-      25.76,
+      25.78,
       27.62,
       "hands"
     ],
@@ -1099,6 +1099,154 @@
       45.5,
       47.68,
       "hands"
+    ]
+  ],
+  "cat_slams": [
+    [
+      0.44,
+      "caminando"
+    ],
+    [
+      2.46,
+      "ciudadanas"
+    ],
+    [
+      5.82,
+      "educación"
+    ],
+    [
+      6.78,
+      "infraestructura"
+    ],
+    [
+      11.94,
+      "necesitamos"
+    ],
+    [
+      14.04,
+      "participar"
+    ],
+    [
+      15.1,
+      "Jóvenes"
+    ],
+    [
+      17.86,
+      "participación"
+    ],
+    [
+      20.54,
+      "ciudadanía"
+    ],
+    [
+      24.6,
+      "participar"
+    ],
+    [
+      26.28,
+      "levantar"
+    ],
+    [
+      29.7,
+      "Participando"
+    ],
+    [
+      31.1,
+      "quitando"
+    ],
+    [
+      33.64,
+      "realmente"
+    ],
+    [
+      37.88,
+      "ciudadana"
+    ],
+    [
+      39.8,
+      "profesora"
+    ],
+    [
+      40.66,
+      "proponer"
+    ],
+    [
+      43.46,
+      "mejorar"
+    ],
+    [
+      47.1,
+      "proponer"
+    ],
+    [
+      49.62,
+      "cambios"
+    ]
+  ],
+  "headlines": [
+    [
+      0.0,
+      "Yo caminando por las calles me doy cuenta"
+    ],
+    [
+      6.78,
+      "infraestructura salud apoyos"
+    ],
+    [
+      14.6,
+      "más Jóvenes con mente fresca con visión"
+    ],
+    [
+      22.64,
+      "porque somos el futuro de México tenemos que participar O sea"
+    ],
+    [
+      30.5,
+      "como se van quitando esas cosas"
+    ],
+    [
+      38.6,
+      "joven mujer profesora poder"
+    ],
+    [
+      45.38,
+      "es la única manera en que podemos proponer"
+    ]
+  ],
+  "markers": [
+    [
+      0.15,
+      "Yo caminando por las calles me doy cuenta"
+    ],
+    [
+      9.39,
+      "la vieja política está obsoleta Y es por eso que necesitamos"
+    ],
+    [
+      20.39,
+      "nuestra ciudadanía Pues por lo mismo"
+    ],
+    [
+      30.65,
+      "como se van quitando esas cosas"
+    ],
+    [
+      40.81,
+      "proponer aspectos que yo he visto que se pueden"
+    ]
+  ],
+  "badges": [
+    [
+      5.14,
+      "1"
+    ],
+    [
+      20.44,
+      "2"
+    ],
+    [
+      35.3,
+      "3"
     ]
   ]
 }
