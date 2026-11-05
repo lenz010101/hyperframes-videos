@@ -20,7 +20,7 @@ of the reference edit, using the ONE available talking-head source:
 Writes back into scenes.json: captions_whatsapp, words_flat, cut_times,
 kinetic_words, plates, dur_whatsapp.
 """
-import json, os, re, subprocess, sys, tempfile, wave
+import json, glob, os, re, subprocess, sys, tempfile, unicodedata, wave
 
 def run(cmd):
     return subprocess.run(cmd, check=True, capture_output=True, text=True)
@@ -141,15 +141,19 @@ def esc(x):
     return x.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 # ------------------------------------------------------------- scene looks
+# f = CSS filter, s = scale (punch-in), x/y = framing offset,
+# fx = mirror flag, t = per-scene color wash (color identity, like the ref)
 LOOKS = [
-    {"f": "none", "s": 1.03, "x": "0%", "y": "0%", "fx": 1},
-    {"f": "sepia(0.22) saturate(1.4) contrast(1.12) brightness(1.03)", "s": 1.32, "x": "-6%", "y": "-12%", "fx": 1},
-    {"f": "saturate(0.95) hue-rotate(-14deg) contrast(1.08) brightness(0.97)", "s": 1.16, "x": "5%", "y": "-4%", "fx": 1},
-    {"f": "saturate(1.2) contrast(1.22) brightness(0.94)", "s": 1.12, "x": "0%", "y": "-7%", "fx": -1},
-    {"f": "sepia(0.3) saturate(1.7) contrast(1.28) brightness(0.85) hue-rotate(-18deg)", "s": 1.45, "x": "-4%", "y": "-9%", "fx": 1},
-    {"f": "grayscale(1) contrast(1.38) brightness(1.04)", "s": 1.52, "x": "0%", "y": "-16%", "fx": 1},
+    {"f": "none", "s": 1.03, "x": "0%", "y": "0%", "fx": 1, "t": "rgba(28,64,168,0.14)"},
+    {"f": "sepia(0.22) saturate(1.4) contrast(1.12) brightness(1.03)", "s": 1.32, "x": "-6%", "y": "-12%", "fx": 1, "t": "rgba(255,146,40,0.16)"},
+    {"f": "saturate(0.95) hue-rotate(-14deg) contrast(1.08) brightness(0.97)", "s": 1.16, "x": "5%", "y": "-4%", "fx": 1, "t": "rgba(0,178,168,0.14)"},
+    {"f": "saturate(1.2) contrast(1.22) brightness(0.94)", "s": 1.12, "x": "0%", "y": "-7%", "fx": -1, "t": "rgba(198,30,84,0.16)"},
+    {"f": "sepia(0.3) saturate(1.7) contrast(1.28) brightness(0.85) hue-rotate(-18deg)", "s": 1.45, "x": "-4%", "y": "-9%", "fx": 1, "t": "rgba(96,48,210,0.15)"},
+    {"f": "grayscale(1) contrast(1.38) brightness(1.04)", "s": 1.52, "x": "0%", "y": "-16%", "fx": 1, "t": None},
+    {"f": "none", "s": 1.85, "x": "0%", "y": "-22%", "fx": 1, "t": "rgba(255,110,150,0.12)"},
+    {"f": "grayscale(0.5) contrast(1.32) saturate(1.35)", "s": 1.62, "x": "8%", "y": "-10%", "fx": 1, "t": "rgba(22,88,255,0.2)"},
 ]
-SEQ = [0, 1, 2, 3, 0, 4, 1, 5, 2, 0, 3, 1, 4, 2, 5, 0, 3, 2, 1, 4, 0, 5, 2, 3, 1, 4, 2]
+SEQ = [0, 1, 2, 6, 3, 0, 4, 1, 5, 2, 0, 7, 3, 1, 4, 2, 5, 0, 3, 2, 1, 4, 0, 5, 2, 3, 1]
 
 def build_seq(n, seq):
     """Look index per segment, never repeating the previous one."""
@@ -173,10 +177,12 @@ def gen_segments_html(cuts, seq):
         d = max(0.2, b - a - 0.02)
         style = (f"filter:{lk['f']};transform:scale({lk['s']}) "
                  f"translate({lk['x']},{lk['y']}) scaleX({lk['fx']})")
+        tint = lk.get("t") or ""
+        tint_html = f'<div class="tint" style="background:{tint}"></div>' if tint else ""
         out.append(f'    <div class="lseg" style="{style}">'
                    f'<video id="seg{k}" class="clip" data-start="{a:.3f}" '
                    f'data-duration="{d:.3f}" data-media-start="{a:.3f}" '
-                   f'src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video></div>')
+                   f'src="whatsapp.mp4" playsinline preload="auto" data-has-audio="true"></video>{tint_html}</div>')
     return "\n".join(out)
 
 def gen_caps_html(segs_words, cuts):
@@ -209,7 +215,7 @@ def gen_plates(cuts, segs_words, dur):
     html, events = [], []
     idx = 0
     for k, (a, b) in enumerate(cuts[:-1]):
-        if k % 7 != 3 or b - a < 1.0:
+        if k % 5 != 2 or b - a < 1.0:
             continue
         w, _ = segs_words[k]
         word = (w or "").upper()
@@ -269,23 +275,161 @@ def gen_tweens(cuts, segs_words, dur, plate_events):
         lines.append(f"tl.to('#plate{idx}',{{opacity:0,scale:1.06,duration:0.12,ease:'power2.in'}},{t1-0.12:.3f});")
     return "\n".join(lines)
 
+# ----------------------------------------------------------- motion layer
+ACCENTS = ["#ffd643", "#ff5f6d", "#3bd2ff", "#b27bff"]
+
+BURST_SVG = (
+    '<svg class="burst" viewBox="-50 -50 100 100">'
+    + "".join(
+        '<line x1="0" y1="0" x2="{r:.0f}" y2="0" transform="rotate({d:.1f})" />'.format(
+            r=44 * (0.55 + 0.45 * (i % 2)), d=i * 22.5)
+        for i in range(16)
+    )
+    + "</svg>"
+)
+
+def norm_txt(s):
+    t = unicodedata.normalize("NFD", s or "").encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9 ]", "", t)
+
+TOPIC_WORDS = {
+    "hands": ["mano", "levantar", "participar", "votar", "propo", "crear", "organizar"],
+    "students": ["educac", "escuela", "estudi", "profesor", "clase", "preparac"],
+    "phones": ["joven", "red", "internet", "movil", "telefon", "app", "social"],
+    "street": ["calle", "infraes", "barrio", "construir", "mejorar", "obra", "pueblo"],
+    "participation": ["ciudadan", "polit", "voto", "comunidad", "organiza", "cambios"],
+    "talking": ["miedo", "hablar", "expresar", "diran", "decir", "escucha"],
+    "community": ["vecin", "conjunto", "todos", "nosotro", "reunir", "junt"],
+    "mexico": ["mexico", "pais", "republica", "nacion"],
+}
+
+def load_broll():
+    """Canonical themed b-roll stills, if present in assets/broll."""
+    order = ["hands", "students", "phones", "street", "participation",
+             "talking", "community", "mexico"]
+    found = {}
+    for f in glob.glob("assets/broll/*"):
+        key = os.path.splitext(os.path.basename(f))[0].lower()
+        if key in order:
+            found[key] = f.replace("\\", "/")
+    return [(k, found[k]) for k in order if k in found]
+
+def gen_broll(cuts, segs_words):
+    """Themed stills: full-frame beats on longer scenes, polaroid cards on shorter."""
+    broll = load_broll()
+    html, tw, beats = [], [], []
+    if not broll:
+        return "\n".join(html), "\n".join(tw), beats
+    slots = [("6%", "9%", "46%", -6), ("50%", "12%", "44%", 5),
+             ("8%", "27%", "44%", 4), ("52%", "25%", "42%", -4)]
+    bi = 0
+    for k, (a, b) in enumerate(cuts):
+        if k % 4 != 2 or b - a < 0.9:
+            continue
+        p = norm_txt(segs_words[k][1] or "")
+        pick = None
+        for name, path in broll:
+            if any(w in p for w in TOPIC_WORDS.get(name, [])):
+                pick = (name, path)
+                break
+        if pick is None:
+            pick = broll[bi % len(broll)]
+        name, path = pick
+        t0, t1 = round(a + 0.12, 3), round(min(b - 0.12, a + 2.3), 3)
+        if t1 - t0 < 0.75:
+            continue
+        beats.append([round(t0, 2), round(t1, 2), name])
+        if b - a >= 1.5:
+            html.append(f'      <div class="bfull" id="bf{bi}"><img src="{path}" alt=""></div>')
+            tw.append(f"tl.fromTo('#bf{bi}',{{opacity:0}},{{opacity:1,duration:0.08,ease:'none'}},{t0:.3f});")
+            tw.append(f"tl.fromTo('#bf{bi} img',{{scale:1.14}},{{scale:1.02,duration:{t1-t0:.3f},ease:'none'}},{t0:.3f});")
+            tw.append(f"tl.to('#bf{bi}',{{opacity:0,duration:0.07,ease:'none'}},{t1:.3f});")
+        else:
+            s = slots[bi % len(slots)]
+            r = s[3]
+            html.append(f'      <div class="broll" id="br{bi}" style="left:{s[0]};top:{s[1]};width:{s[2]}"><img src="{path}" alt=""></div>')
+            tw.append(f"tl.fromTo('#br{bi}',{{opacity:0,scale:0.55,rotate:{r+7},y:26}},{{opacity:1,scale:1,rotate:{r},y:0,duration:0.24,ease:'back.out(1.6)'}},{t0:.3f});")
+            tw.append(f"tl.to('#br{bi}',{{y:8,duration:{max(0.4, t1-t0-0.32):.3f},ease:'sine.inOut'}},{t0+0.26:.3f});")
+            tw.append(f"tl.to('#br{bi}',{{opacity:0,scale:0.92,duration:0.16,ease:'power2.in'}},{max(t0+0.3, t1-0.16):.3f});")
+        bi += 1
+    return "\n".join(html), "\n".join(tw), beats
+
+def gen_slams(cuts, segs_words, flat):
+    """Full-screen 3D kinetic word at its real spoken beat (every 2nd segment)."""
+    html, tw, slams = [], [], []
+    idx = 0
+    for k, (w, phrase) in enumerate(segs_words):
+        if not w or k % 2 != 0:
+            continue
+        a, b = cuts[k]
+        target = norm_txt(w)
+        st = en = None
+        for s, e, wd in flat:
+            if a - 0.05 <= s < b and norm_txt(wd) == target:
+                st, en = round(s, 3), round(e, 3)
+                break
+        if st is None:
+            st = round(a + 0.2, 3)
+            en = round(min(b, st + 0.8), 3)
+        show = min(max(0.55, en - st), b - a - 0.28)
+        endt = round(st + show, 3)
+        if endt - st < 0.4:
+            continue
+        acc = ACCENTS[idx % len(ACCENTS)]
+        n = len(w)
+        if n <= 7:
+            fs = "clamp(46px,12vw,128px)"
+        elif n <= 11:
+            fs = "clamp(38px,9.5vw,104px)"
+        elif n <= 15:
+            fs = "clamp(30px,7.5vw,84px)"
+        else:
+            fs = "clamp(25px,6vw,68px)"
+        html.append(f'      <div class="slam" id="slam{idx}">{BURST_SVG}'
+                    f'<span style="font-size:{fs};--xa:{acc}">{esc(w.upper())}</span></div>')
+        mode = idx % 4
+        if mode == 0:
+            tw.append(f"tl.fromTo('#slam{idx}',{{y:-150,opacity:0}},{{y:0,opacity:1,duration:0.2,ease:'back.out(1.7)'}},{st:.3f});")
+        elif mode == 1:
+            tw.append(f"tl.fromTo('#slam{idx}',{{x:-320,opacity:0}},{{x:0,opacity:1,duration:0.2,ease:'expo.out'}},{st:.3f});")
+        elif mode == 2:
+            tw.append(f"tl.fromTo('#slam{idx}',{{x:320,opacity:0}},{{x:0,opacity:1,duration:0.2,ease:'expo.out'}},{st:.3f});")
+        else:
+            tw.append(f"tl.fromTo('#slam{idx}',{{scale:0.42,opacity:0}},{{scale:1,opacity:1,duration:0.24,ease:'back.out(2.1)'}},{st:.3f});")
+        tw.append(f"tl.fromTo('#slam{idx} .burst',{{scale:0.55,opacity:0,rotation:-24}},{{scale:1,opacity:0.9,rotation:0,duration:0.2,ease:'power3.out'}},{st:.3f});")
+        tw.append(f"tl.to('#slam{idx} .burst',{{rotation:30,duration:{endt-st:.3f},ease:'none'}},{st+0.2:.3f});")
+        tw.append(f"tl.to('#slam{idx}',{{opacity:0,scale:0.93,duration:0.14,ease:'power2.in'}},{endt:.3f});")
+        slams.append([round(st, 2), w])
+        idx += 1
+    return "\n".join(html), "\n".join(tw), slams
+
 COMPO_TEMPLATE = """<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <title>WhatsApp Edit - Reel Montage</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap">
 <style>
 html,body{margin:0;height:100%;background:#000;overflow:hidden}
 #main{position:absolute;inset:0;background:#000;overflow:hidden}
 #vwrap{position:absolute;inset:0;transform-origin:50% 40%;z-index:1;overflow:hidden}
 #vwrap video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
 .lseg{position:absolute;inset:0;transform-origin:50% 30%}
-.flash{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:#fff}
-.caps{position:absolute;left:0;right:0;top:52%;display:grid;place-items:center;pointer-events:none;z-index:4}
+.tint{position:absolute;inset:0;mix-blend-mode:overlay;pointer-events:none}
+.broll{position:absolute;z-index:3;opacity:0;box-shadow:0 16px 46px rgba(0,0,0,.42);border:5px solid #fff;border-radius:14px;overflow:hidden;pointer-events:none;aspect-ratio:4/5}
+.broll img{width:100%;height:100%;object-fit:cover;display:block}
+.bfull{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;overflow:hidden}
+.bfull img{width:100%;height:100%;object-fit:cover;transform-origin:50% 40%}
+.slam{position:absolute;left:0;right:0;top:4%;bottom:34%;z-index:5;display:grid;place-items:center;pointer-events:none;opacity:0}
+.slam .burst{position:absolute;width:min(78vw,600px);height:min(78vw,600px);z-index:0}
+.slam .burst line{stroke:rgba(255,255,255,.85);stroke-width:2.4;stroke-linecap:round}
+.slam span{position:relative;z-index:1;font-family:'Anton','Archivo Black',Arial,Helvetica,sans-serif;color:#fff;text-transform:uppercase;line-height:.95;letter-spacing:1px;-webkit-text-stroke:2.4px #000;text-align:center;max-width:94%;text-shadow:0 6px 0 var(--xa),0 12px 0 rgba(0,0,0,.35),0 0 44px rgba(0,0,0,.35)}
+.flash{position:absolute;inset:0;z-index:8;pointer-events:none;opacity:0;background:#fff}
+.caps{position:absolute;left:0;right:0;top:52%;display:grid;place-items:center;pointer-events:none;z-index:6}
 .cap{font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(20px,4.4vw,50px);color:#fff;opacity:0;text-align:center;max-width:82%;letter-spacing:.3px;line-height:1.15;
 -webkit-text-stroke:1.4px #000;text-shadow:0 3px 0 rgba(0,0,0,.55),0 6px 16px rgba(0,0,0,.5)}
 .cap .kb{display:block;font-size:1.95em;letter-spacing:.5px;line-height:1.05;margin-bottom:2px}
-.plate{position:absolute;inset:0;z-index:6;display:grid;place-items:center;pointer-events:none;opacity:0;
+.plate{position:absolute;inset:0;z-index:9;display:grid;place-items:center;pointer-events:none;opacity:0;
 font-family:'Archivo Black',Arial,Helvetica,sans-serif;font-size:clamp(40px,12vw,120px);color:#fff;text-transform:uppercase;text-align:center;max-width:90%;letter-spacing:2px;
 text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
 §§PLATE_GRADS§§
@@ -300,6 +444,8 @@ text-shadow:0 4px 0 rgba(0,0,0,.45),0 0 40px rgba(0,0,0,.5)}
   <div class="caps" id="caps">
 §§CAPS_HTML§§
   </div>
+§§BROLL_HTML§§
+§§SLAM_HTML§§
 §§PLATES_HTML§§
 §§SFX_HTML§§
 </div>
@@ -333,14 +479,25 @@ for a, w in kinetic:
 plates_html, plate_events, plate_grads = gen_plates(cuts, segs_words, dur_wa)
 print(f"plates: {len(plate_events)}")
 
+broll_html, broll_tweens, broll_beats = gen_broll(cuts, segs_words)
+print(f"b-roll: {len(broll_beats)} beats ({len(load_broll())} images)")
+
+slam_html, slam_tweens, slams = gen_slams(cuts, segs_words, flat)
+print(f"slams: {len(slams)}")
+
 COMPO = (COMPO_TEMPLATE
          .replace("§§DUR§§", f"{dur_wa:.3f}")
          .replace("§§PLATE_GRADS§§", plate_grads)
          .replace("§§CLIPS_HTML§§", gen_segments_html(cuts, SEQ))
          .replace("§§CAPS_HTML§§", gen_caps_html(segs_words, cuts))
          .replace("§§PLATES_HTML§§", plates_html)
+         .replace("§§BROLL_HTML§§", broll_html)
+         .replace("§§SLAM_HTML§§", slam_html)
          .replace("§§SFX_HTML§§", gen_sfx_html(cuts, plate_events))
-         .replace("§§TWEENS§§", gen_tweens(cuts, segs_words, dur_wa, plate_events)))
+         .replace("§§TWEENS§§", "\n".join([
+             gen_tweens(cuts, segs_words, dur_wa, plate_events),
+             slam_tweens,
+             broll_tweens])))
 open("wa-edit.html", "w", encoding="utf-8").write(COMPO)
 print(f"wa-edit.html written: {len(COMPO)} bytes")
 
@@ -349,6 +506,8 @@ sc["words_flat"] = [[round(s, 2), round(e, 2), w] for s, e, w in flat]
 sc["cut_times"] = [round(a, 2) for a, b in cuts]
 sc["kinetic_words"] = kinetic
 sc["plates"] = [[t0, t1, idx] for (t0, t1, idx) in plate_events]
+sc["slams"] = slams
+sc["broll"] = broll_beats
 sc["dur_whatsapp"] = dur_wa
 json.dump(sc, open(scenes_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 print(f"schedule: {len(cuts)} cuts, {len(kinetic)} kinetic words, {len(plate_events)} plates, base {dur_wa:.2f}s")
