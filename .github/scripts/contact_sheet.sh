@@ -27,8 +27,9 @@ t = d * (0.5 + i) / 24
 m = int(t // 60); s = t - 60 * m
 print(f"{i+1:02d} · {m:02d}:{s:04.1f}", end='')
 PY
+  # cell = image on top + black strip below holding its label (like the reference)
   ffmpeg -hide_banner -loglevel error -y -ss "$T" -i "$V" -frames:v 1 \
-    -vf "scale=-2:270,setsar=1,drawtext=fontfile=$MONO:fontsize=17:fontcolor=0xC8C8C8:x=10:y=h-27:textfile=cells/label.txt" \
+    -vf "scale=-2:268,setsar=1,pad=iw:ih+26,drawtext=fontfile=$MONO:fontsize=15:fontcolor=0xD9D9D9:x=12:y=h-24:textfile=cells/label.txt" \
     "cells/cell_$i.png"
 done
 
@@ -38,8 +39,9 @@ python3 -c "
 w=$W; h=$H; fps='$FPS'; d=$DUR
 print(f'{w}×{h} · {fps}fps · {d:.1f}s · 24 frames', end='')" > out/meta.txt
 
+# grid, then a solid black 56px header ABOVE (content pushed down, title on real black)
 ffmpeg -hide_banner -loglevel error -y -framerate 1 -start_number 0 -i "cells/cell_%d.png" \
-  -vf "tile=6x4:margin=10:padding=10:color=$BG,pad=iw:ih+56:0:0:color=$BG,drawtext=fontfile=$BOLD:fontsize=21:fontcolor=0xF2F2F2:x=14:y=18:textfile=out/title.txt,drawtext=fontfile=$MONO:fontsize=15:fontcolor=0x9E9E9E:x=w-tw-14:y=20:textfile=out/meta.txt" \
+  -vf "tile=6x4:margin=10:padding=10:color=$BG,pad=iw:ih+56:0:56:color=$BG,drawtext=fontfile=$MONO:fontsize=20:fontcolor=0xE4E4E4:x=16:y=20:textfile=out/title.txt,drawtext=fontfile=$MONO:fontsize=14:fontcolor=0x9C9C9C:x=w-tw-16:y=23:textfile=out/meta.txt" \
   -frames:v 1 "out/contact_sheet.png"
 rm -rf cells
 
